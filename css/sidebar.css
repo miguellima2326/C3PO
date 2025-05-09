@@ -1,0 +1,53 @@
+.perfil-sidebar {
+	position: fixed;
+	top: 0;
+	right: -300px;
+	width: 300px;
+	height: 100%;
+	background-color: #797777;
+	box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+	z-index: 999;
+	transition: right 0.3s ease;
+	padding: 20px;
+	overflow-y: auto;
+}
+
+.perfil-sidebar.show {
+	right: 0;
+}
+
+.perfil-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #ffffff;
+	padding-bottom: 10px;
+}
+
+.fechar-btn {
+	background: transparent;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.perfil-opcoes {
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+}
+
+.perfil-opcoes li {
+	margin: 10px 0;
+}
+
+.perfil-opcoes a {
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+	transition: color 0.2s;
+}
+
+.perfil-opcoes a:hover {
+	color: #176294;
+}

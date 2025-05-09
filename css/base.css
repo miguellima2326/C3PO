@@ -1,0 +1,7 @@
+/* Estilização geral do corpo da página */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #757575;
+	padding-top: 70px;
+	overflow-x: hidden;
+}

@@ -1,0 +1,28 @@
+.texto-img, .Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .contador-curso {
+	transition: all 0.3s ease;
+	transform-origin: center;
+}
+
+.texto-img:hover {
+	transform: translate(-50%, -50%) scale(1.21);
+}
+
+.Subtexto-img:hover {
+	transform: translate(-42%, -50%) scale(1.18);
+}
+
+.Subtexto2-img:hover, .top1:hover {
+	transform: translate(-10%, -30%) scale(1.18);
+}
+
+.top2:hover {
+	transform: translate(-57%, -30%) scale(1.18);
+}
+
+.top3:hover {
+	transform: translate(-10%, -30%) scale(1.18);
+}
+
+.titulo:hover, .site-footer:hover, .header li:hover, .logo:hover, .contador-curso:hover {
+	transform: scale(1.18);
+}

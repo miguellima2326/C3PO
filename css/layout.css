@@ -1,0 +1,66 @@
+/* Cabeçalho */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #333;
+	z-index: 10;
+}
+
+/* Logo */
+.logo {
+	display: grid;
+	justify-items: left;
+	position: fixed;
+	left: 5%;
+	top: -2%;
+}
+
+.logo span {
+	font-weight: bold;
+	color: white;
+}
+
+.logo img {
+	height: 110px;
+}
+
+/* Rodapé */
+.site-footer {
+	background-color: #1a1a1a;
+	color: white;
+	text-align: center;
+	padding: 10px 8px;
+	position: static;
+	bottom: 0;
+	width: 100%;
+	z-index: 999;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.footer-content p {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.social-icons {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.social-icons a {
+	color: #ffffff;
+	font-size: 20px;
+	transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+	color: #3498db;
+}

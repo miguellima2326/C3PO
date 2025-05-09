@@ -1,0 +1,46 @@
+.carousel-container {
+	width: auto;
+	overflow: visible;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 90px;
+	overflow-x: auto;
+	transition: transform 0.3s ease;
+}
+
+.carousel {
+	display: flex;
+	gap: 40px;
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	max-width: 100%;
+	white-space: nowrap;
+	cursor: grab;
+	user-select: none;
+	padding: 20px 10px;
+}
+
+.carousel.active {
+	cursor: grabbing;
+}
+
+.carousel::-webkit-scrollbar {
+	display: none;
+}
+
+.carousel::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+	background: #3498db;
+	border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+	background: #2980b9;
+}

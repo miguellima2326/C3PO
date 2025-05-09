@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+	.texto-img, .Subtexto-img, .Subtexto2-img,
+	.top1, .top2, .top3 {
+	  position: relative;
+	  top: auto;
+	  left: auto;
+	  transform: none;
+	  padding: 15px;
+	  margin: 20px auto;
+	  width: 90%;
+	  text-align: center;
+	}
+  
+	.texto-img h1, .Subtexto-img h1, .Subtexto2-img h1,
+	.top1 h1, .top2 h1, .top3 h1 {
+	  font-size: 26px;
+	}
+  
+	.texto-img p, .Subtexto-img p, .Subtexto2-img p,
+	.top1 p, .top2 p, .top3 p {
+	  font-size: 18px;
+	}
+}

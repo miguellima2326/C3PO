@@ -1,0 +1,27 @@
+.course {
+	display: inline-block;
+	min-width: 250px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: transform 0.3s, border 0.3s;
+	padding: 10px;
+	text-align: center;
+	transform-origin: center center;
+	position: relative;
+	z-index: 1;
+	-webkit-user-drag: none;
+	user-select: none;
+	overflow: visible;
+}
+
+.course:hover {
+	transform: scale(1.15);
+	z-index: 10;
+}
+
+.selected {
+	border: 3px solid blue;
+	transform: scale(1.1);
+}

@@ -1,0 +1,40 @@
+/* Barra de navegação */
+.navbar {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+	background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.navbar ul {
+	text-align: right;
+	list-style: none;
+	display: flex;
+	gap: 130px;
+}
+
+.navbar li {
+	font-size: 27px;
+	display: flex;
+	align-items: grid;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	transition: color 0.3s;
+}
+
+.navbar a:hover {
+	color: #3498db;
+	transition: ease, 0.3s;
+}
+
+.material-icons {
+	position: relative;
+	top: 10%;
+	font-size: 30px !important;
+}

@@ -1,0 +1,43 @@
+.background-1, .background-2 {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+
+/* ...suas classes .texto-img, .Subtexto-img etc... */
+
+.cursos-section, .cursos-section2, .cursos-section3 {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 60px 20px;
+	text-align: center;
+	color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+.cursos-section {
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent), url("imagens/TiC.jpg");
+}
+
+.cursos-section2 {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent),
+	linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent),
+	url("imagens/Adm.jpg");
+}
+
+.cursos-section3 {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent),
+	url("imagens/Rh.jpg");
+}
+
+.cursos-section::before, .cursos-section2::before, .cursos-section3::before {
+	content: "";
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: -1;
+}

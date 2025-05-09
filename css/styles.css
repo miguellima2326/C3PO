@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+/* ===================================================
+   RESET DE ESTILOS
+   =================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Seleção do Site */
+    -webkit-user-select: none;  /* Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer */
+    user-select: none;          /* Padrão */
+}
+
+/* ===================================================
+   ESTILIZAÇÃO GERAL DO CORPO
+   =================================================== */
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    background-color: #757575;
+    padding-top: 70px; /* Espaço para o header fixo */
+    overflow-x: hidden;
+}
+
+/* ===================================================
+   CABEÇALHO FIXO
+   =================================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    z-index: 10;
+}
+
+/* Logo Navbar */
+.logo {
+    display: grid;
+    justify-items: left;
+    position: fixed;
+    left: 5%;
+    top: -1%;
+}
+
+.logo span {
+    font-weight: bold;
+    color: white;
+}
+
+.logo img {
+    height: 110px;
+}
+
+/* Barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Lista de navegação */
+.navbar ul {
+    text-align: right;
+    list-style: none;
+    display: flex;
+    gap: 130px;
+}
+
+/* Itens da lista (li) dentro da navbar */
+.navbar li {
+    font-size: 27px;
+    display: flex;
+    align-items: grid;
+}
+
+/* Texto do menu de navegação */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Efeito de hover nos links da navbar */
+.navbar a:hover {
+    color: #3498db;
+    transition: ease, 0.3s;
+}
+
+.material-icons {
+    position: relative;
+    top: 10%;
+    font-size: 30px !important;
+}
+
+/* ===================================================
+   SEÇÕES PRINCIPAIS DO SITE
+   =================================================== */
+.about, .mission, .courses, .testimonials {
+    padding: 80px 20px;
+}
+
+/* Título principal das seções */
+.titulo {
+    display: inline-block;
+    padding-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 50px;
+}
+
+/* ===================================================
+   SIDEBAR DE PERFIL
+   =================================================== */
+
+.perfil-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #797777;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: right 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+}
+
+.perfil-sidebar.show {
+    right: 0;
+}
+
+.perfil-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.fechar-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.perfil-opcoes {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.perfil-opcoes li {
+    margin: 10px 0;
+}
+
+.perfil-opcoes a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.perfil-opcoes a:hover {
+    color: #176294;
+}
+
+/* ===================================================
+   RODAPÉ FIXO DO SITE
+   =================================================== */
+.site-footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 10px 8px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #3498db;
+}
+
+/* ===================================================
+   TEXTO SOBRE IMAGENS E EFEITOS
+   =================================================== */
+.background-1, .background-2 {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.texto-img {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 35px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    transform-origin: center;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    perspective: 1000px;
+}
+
+.texto-img2 {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 35px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    transform-origin: center;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    perspective: 1000px;
+}
+
+.texto-img h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 90px;
+}
+
+.texto-img2 {
+    font-size: 45px; 
+    font-family: 'Orbitron', sans-serif;
+}
+
+.texto-img p, .texto-img2 p {
+    font-size: 30px;
+}
+
+.Subtexto-img {
+    position: absolute;
+    top: 38%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.Subtexto-img h1 {
+    font-size: 40px;
+}
+
+.Subtexto-img p {
+    font-size: 25px;
+    text-align: justify;
+}
+
+.Subtexto2-img {
+    position: absolute;
+    top: 63%;
+    left: 40%;
+    transform: translate(-0.0%, -30%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.Subtexto2-img h1 {
+    font-size: 40px;
+}
+
+.Subtexto2-img p {
+    font-size: 25px;
+    text-align: justify;
+}
+
+.top1, .top2, .top3 {
+    position: absolute;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.top1 {
+    top: 28%;
+    left: 60%;
+    transform: translate(-0%, -30%);
+}
+
+.top2 {
+    top: 55%;
+    left: 40%;
+    transform: translate(-65%, -30%);
+}
+
+.top3 {
+    top: 80%;
+    left: 60%;
+    transform: translate(-0%, -30%);
+}
+
+.top1 h1, .top2 h1, .top3 h1 {
+    font-size: 40px;
+}
+
+.top1 p, .top2 p, .top3 p {
+    font-size: 25px;
+}
+
+/* ===================================================
+   ANIMAÇÕES AO PASSAR O MOUSE
+   =================================================== */
+
+.texto-img:hover {
+    color: #00bfae;
+    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
+}
+
+.texto-img2:hover {
+    color: #00bfae;
+    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
+}
+
+.Subtexto-img:hover {
+    transform: translate(-37%, -50%) scale(1.25);
+}
+
+.Subtexto2-img:hover, .top1:hover {
+    transform: translate(-12%, -40%) scale(1.25);
+}
+
+.top2:hover {
+    transform: translate(-57%, -30%) scale(1.18);
+}
+
+.top3:hover {
+    transform: translate(-8%, -30%) scale(1.18);
+}
+
+.titulo:hover, .header li:hover, .logo:hover, .contador-curso:hover {
+    transform: scale(1.18);
+}
+
+.Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .contador-curso, .site-footer p {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.site-footer:hover {
+    transform: scale(1.18);
+}
+
+.site-footer p:hover {
+    color: #00bfae;
+}
+
+/* ===================================================
+   SCROLL BAR WEB-KIT
+   =================================================== */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    background-color: #D6E3FF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #B0C4FF;
+}
+
+/* ===================================================
+   RESPONSIVIDADE
+   =================================================== */
+@media (max-width: 768px) {
+    .texto-img, .Subtexto-img, .Subtexto2-img,
+    .top1, .top2, .top3 {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 15px;
+        margin: 20px auto;
+        width: 90%;
+        text-align: center;
+    }
+
+    .texto-img h1, .Subtexto-img h1, .Subtexto2-img h1,
+    .top1 h1, .top2 h1, .top3 h1 {
+        font-size: 26px;
+    }
+
+    .texto-img p, .Subtexto-img p, .Subtexto2-img p,
+    .top1 p, .top2 p, .top3 p {
+        font-size: 18px;
+    }
+}
+
+/* ================== RESPONSIVIDADE EXTRA ================== */
+@media (max-width: 1024px) {
+    .navbar ul {
+        gap: 60px; /* Reduz o espaçamento dos itens */
+    }
+
+    .logo img {
+        height: 90px; /* Diminui o logo */
+    }
+
+    .navbar li {
+        font-size: 22px; /* Tamanho dos links */
+    }
+
+    .texto-img h1 {
+        font-size: 60px; /* Reduz texto principal */
+    }
+
+    .texto-img p {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+    }
+
+    .logo {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .material-icons {
+        font-size: 24px !important;
+        top: 0;
+    }
+
+    .titulo {
+        font-size: 36px;
+    }
+
+    .perfil-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .perfil-sidebar.show {
+        right: 0;
+    }
+
+    .site-footer p {
+        font-size: 16px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .texto-img h1 {
+        font-size: 40px;
+    }
+
+    .texto-img2 {
+        font-size: 28px;
+    }
+
+    .texto-img p,
+    .texto-img2 p,
+    .Subtexto-img p,
+    .Subtexto2-img p,
+    .top1 p,
+    .top2 p,
+    .top3 p {
+        font-size: 16px;
+    }
+
+    .top1 h1,
+    .top2 h1,
+    .top3 h1,
+    .Subtexto-img h1,
+    .Subtexto2-img h1 {
+        font-size: 24px;
+    }
+}
+
+/* Botão de Fechar lightbox */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
