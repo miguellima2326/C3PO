@@ -51,7 +51,10 @@ body {
 }
 
 .logo img {
-    height: 110px;
+    height: 100px;
+    width: 180px;
+    margin-left: -15vw;
+    
 }
 
 /* Barra de navegação */
@@ -69,12 +72,12 @@ body {
     text-align: right;
     list-style: none;
     display: flex;
-    gap: 130px;
+    gap: 80px;
 }
 
 /* Itens da lista (li) dentro da navbar */
 .navbar li {
-    font-size: 27px;
+    font-size: 35px;
     display: flex;
     align-items: grid;
 }
@@ -215,6 +218,44 @@ body {
 
 .social-icons a:hover {
     color: #3498db;
+}
+
+/* ===================================================
+   PopUp Rodapé
+   =================================================== */
+
+.popup-telefone {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.popup-conteudo {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 80%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.fechar-popup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
 }
 
 /* ===================================================
@@ -421,37 +462,10 @@ body {
     background-color: #B0C4FF;
 }
 
-/* ===================================================
-   RESPONSIVIDADE
-   =================================================== */
-@media (max-width: 768px) {
-    .texto-img, .Subtexto-img, .Subtexto2-img,
-    .top1, .top2, .top3 {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        padding: 15px;
-        margin: 20px auto;
-        width: 90%;
-        text-align: center;
-    }
-
-    .texto-img h1, .Subtexto-img h1, .Subtexto2-img h1,
-    .top1 h1, .top2 h1, .top3 h1 {
-        font-size: 26px;
-    }
-
-    .texto-img p, .Subtexto-img p, .Subtexto2-img p,
-    .top1 p, .top2 p, .top3 p {
-        font-size: 18px;
-    }
-}
-
-/* ================== RESPONSIVIDADE EXTRA ================== */
+/* ================== RESPONSIVIDADE  ================== */
 @media (max-width: 1024px) {
     .navbar ul {
-        gap: 60px; /* Reduz o espaçamento dos itens */
+        gap: 20px; /* Reduz o espaçamento dos itens */
     }
 
     .logo img {
@@ -471,17 +485,74 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1366px) {
+
+    .texto-img {
+        padding: 1px;
+    }
+
+    .texto-img h1 {
+        font-size: 75px;
+    }
+
+    .Subtexto-img {
+        top: 39%;
+    }
+
+    .Subtexto2-img {
+        top: 65%;
+    }
+
+    .Subtexto-img:hover {
+        transform: translate(-40%, -50%) scale(1.18);
+    }
+
+    .texto-img2 {
+        top: 1%;
+        font-size: 33px;
+        padding: 20px;
+    }
+
+    .top1 {
+    top: 20%;
+    left: 50%;
+    transform: translate(-0%, -30%);
+    }
+
+    .top1:hover {
+        transform:  translate(-9%, -30%) scale(1.18);
+    }
+
+    .top2 {
+        top: 49%;
+        left: 40%;
+        transform:translate(-65%, -30%);
+    }
+
+    .top2:hover {
+        transform: translate(-55%, -30%) scale(1.18);
+    }
+
+    .top3 {
+        top: 78%;
+        left: 52%;
+        transform: translate(-0%, -30%);
+    }
+
+    .top3:hover {
+        transform: translate(-9%, -30%) scale(1.18);
+    }
+
+}
+
     .navbar {
-        flex-direction: column;
         align-items: center;
         padding: 10px 0;
         text-align: center;
     }
 
     .navbar ul {
-        flex-direction: column;
-        gap: 20px;
+        gap: 100px;
         padding: 0;
     }
 
@@ -490,10 +561,6 @@ body {
         display: flex;
         justify-content: center;
         margin-bottom: 10px;
-    }
-
-    .logo img {
-        height: 70px;
     }
 
     .material-icons {
@@ -506,8 +573,8 @@ body {
     }
 
     .perfil-sidebar {
-        width: 100%;
-        right: -100%;
+        width: 300px;
+        right: -300px;
     }
 
     .perfil-sidebar.show {
@@ -521,7 +588,6 @@ body {
     .social-icons a {
         font-size: 18px;
     }
-}
 
 @media (max-width: 480px) {
     .texto-img h1 {

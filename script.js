@@ -95,3 +95,27 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
 }
+
+// Popup Rodapé
+
+document.addEventListener('DOMContentLoaded', function () {
+  const botaoAbrir = document.getElementById('abrirPopup');
+  const popup = document.getElementById('popupTelefone');
+  const botaoFechar = document.getElementById('fecharPopup');
+
+  botaoAbrir.addEventListener('click', function (e) {
+    e.preventDefault();
+    popup.style.display = 'flex';
+  });
+
+  botaoFechar.addEventListener('click', function () {
+    popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', function (e) {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+});
+
