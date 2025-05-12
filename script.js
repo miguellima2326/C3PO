@@ -148,5 +148,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Drag off
+document.addEventListener('dragstart', function(e) {
+  e.preventDefault();
+});
+
+
 
 

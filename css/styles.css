@@ -51,7 +51,7 @@ body {
 }
 
 .logo img {
-    height: 10vh;
+    height: 12vh;
     width: auto;
     margin-left: -15vw;
     
@@ -372,7 +372,7 @@ body {
     position: absolute;
     top: 63%;
     left: 40%;
-    transform: translate(-0.0%, -30%);
+    transform: translate(-0%, -30%);
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
@@ -540,6 +540,10 @@ body {
         transform: translate(-40%, -50%) scale(1.18);
     }
 
+    .Subtexto2-img:hover {
+        transform: translate(-9%, -30%) scale(1.18);
+    }
+
     .texto-img2 {
         top: 1%;
         font-size: 33px;
@@ -596,6 +600,11 @@ body {
         margin-bottom: 10px;
     }
 
+    .logo img {
+        height: 13vh;
+        width: auto;
+        margin-left: -17vw;
+    }
     .footer-icons {
         font-size: 24px !important;
         top: 0;
