@@ -58,6 +58,7 @@ body {
 }
 
 /* Barra de navegação */
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -65,6 +66,11 @@ body {
     background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.navbar a.active {
+  color: #3498db;
+  transform: scale(1.2);
 }
 
 /* Lista de navegação */
@@ -96,7 +102,7 @@ body {
     transition: ease, 0.3s;
 }
 
-.material-icons {
+.footer-icons {
     position: relative;
     top: 10%;
     font-size: 30px !important;
@@ -204,19 +210,19 @@ body {
     font-size: 19px;
 }
 
-.social-icons {
+.footer-icons {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.social-icons a {
+.footer-icons a {
     color: #ffffff;
     font-size: 20px;
     transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
+.footer-icons a:hover {
     color: #3498db;
 }
 
@@ -224,18 +230,36 @@ body {
    PopUp Rodapé
    =================================================== */
 
-.popup-telefone {
+.popup-telefone, .popup-facebook, .popup-gmail {
+  color: #333131;
   display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(58, 58, 58, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 10000;
   font-size: 20px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup-telefone.show,
+.popup-facebook.show,
+.popup-gmail.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup-telefone.hide,
+.popup-facebook.hide,
+.popup-gmail.hide {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 
 .popup-conteudo {
@@ -438,6 +462,12 @@ body {
     color: #00bfae;
 }
 
+.material-icons:hover {
+    transform: scale(1.1);
+    color: #00bfae;
+    cursor: pointer;
+}
+
 /* ===================================================
    SCROLL BAR WEB-KIT
    =================================================== */
@@ -563,7 +593,7 @@ body {
         margin-bottom: 10px;
     }
 
-    .material-icons {
+    .footer-icons {
         font-size: 24px !important;
         top: 0;
     }

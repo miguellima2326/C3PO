@@ -17,9 +17,9 @@
         <img src="Logoatt.png" alt="Logo"/>
       </div>
       <ul>
-        <li><a href="#"><span class="material-icons">book</span>Projeto C3PO</a></li>
-        <li><a href="#"><span class="material-icons">business</span>Parceiros</a></li>
-        <li><a href="#"><span class="material-icons">phone</span>Contato</a></li>
+        <li><a href="index.html"><span class="material-icons">book</span>Projeto C3PO</a></li>
+        <li><a href="parceiros.html"><span class="material-icons">business</span>Parceiros</a></li>
+        <li><a href="contatos.html "><span class="material-icons">phone</span>Contato</a></li>
         <li><a href="#" onclick="mostrarPerfil(event)"><span class="material-icons">person</span>Meu Perfil</a></li>
       </ul>
     </nav>
@@ -104,23 +104,43 @@
   <footer class="site-footer">
     <div class="footer-content">
       <p>&copy; 2025 Projeto C3PO. Todos os direitos reservados ao grupo.</p>
-      <div class="social-icons">
-        <a href="#"><i class="material-icons">facebook</i></a>
-        <a href="#"><i class="material-icons">email</i></a>
-        <a href="#" id="abrirPopup"><i class="material-icons">smartphone</i></a>
-      </div>
+  <footer>
+  <div class="footer-icons">
+    <span id="abrirPopupTelefone"><span class="material-icons">phone</span></span>
+    <span id="abrirPopupFacebook"><span class="material-icons">facebook</span></span>
+    <span id="abrirPopupGmail"><span class="material-icons">mail</span></span>
+  </div>
+</footer>
     </div>
   </footer>
 
-  <div id="popupTelefone" class="popup-telefone">
-    <div class="popup-conteudo">
-      <span class="fechar-popup" id="fecharPopup">&times;</span>
-      <h2>Telefones de Contato</h2>
-      <p><i class="material-icons">smartphone</i> (34) 99999-9999</p>
-      <p><i class="material-icons">smartphone</i> (34) 88888-8888</p>
-    </div>
+<!-- TELEFONE -->
+<div id="popupTelefone" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupTelefone">&times;</span>
+    <h2>Telefones de Contato</h2>
+    <p><i class="material-icons">smartphone</i> (34) 99999-9999</p>
+    <p><i class="material-icons">smartphone</i> (34) 88888-8888</p>
   </div>
+</div>
 
+<!-- FACEBOOK -->
+<div id="popupFacebook" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupFacebook">&times;</span>
+    <h2>Nosso Facebook</h2>
+    <p><i class="material-icons">facebook</i> /ProjetoC3PO</p>
+  </div>
+</div>
+
+<!-- GMAIL -->
+<div id="popupGmail" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupGmail">&times;</span>
+    <h2>Email de Contato</h2>
+    <p><i class="material-icons">email</i> contato@c3po.com</p>
+  </div>
+</div>
   
 </body>
 </html>

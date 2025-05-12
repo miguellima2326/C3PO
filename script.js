@@ -70,11 +70,9 @@ function mostrarPerfil(event) {
 
   const secaoPerfil = document.getElementById('meu-perfil');
 
-  // Alterna entre mostrar e esconder
   secaoPerfil.classList.toggle('show');
 
-  // Se quiser esconder outras coisas (tipo o carrossel), descomenta isso:
-  // document.querySelector('.carousel-container').style.display = secaoPerfil.classList.contains('show') ? 'none' : 'flex';
+  //SideBar
 }
 function mostrarPerfil(event) {
   event.preventDefault();
@@ -97,25 +95,44 @@ function closeLightbox() {
 }
 
 // Popup Rodapé
-
 document.addEventListener('DOMContentLoaded', function () {
-  const botaoAbrir = document.getElementById('abrirPopup');
-  const popup = document.getElementById('popupTelefone');
-  const botaoFechar = document.getElementById('fecharPopup');
+  function configurarPopup(botaoAbrirId, popupId, botaoFecharId) {
+    const botaoAbrir = document.getElementById(botaoAbrirId);
+    const popup = document.getElementById(popupId);
+    const botaoFechar = document.getElementById(botaoFecharId);
 
-  botaoAbrir.addEventListener('click', function (e) {
-    e.preventDefault();
-    popup.style.display = 'flex';
-  });
+    botaoAbrir.addEventListener('click', function (e) {
+      e.preventDefault();
+      popup.style.display = 'flex';
+      popup.classList.remove('hide');
+      setTimeout(() => {
+        popup.classList.add('show');
+      }, 10);
+    });
 
-  botaoFechar.addEventListener('click', function () {
-    popup.style.display = 'none';
-  });
+    botaoFechar.addEventListener('click', function () {
+      popup.classList.remove('show');
+      popup.classList.add('hide');
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 300);
+    });
 
-  window.addEventListener('click', function (e) {
-    if (e.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
+    window.addEventListener('click', function (e) {
+      if (e.target === popup) {
+        popup.classList.remove('show');
+        popup.classList.add('hide');
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 300);
+      }
+    });
+  }
+
+  // Configurar todos os popups com animação
+  configurarPopup('abrirPopupTelefone', 'popupTelefone', 'fecharPopupTelefone');
+  configurarPopup('abrirPopupFacebook', 'popupFacebook', 'fecharPopupFacebook');
+  configurarPopup('abrirPopupGmail', 'popupGmail', 'fecharPopupGmail');
 });
+
 

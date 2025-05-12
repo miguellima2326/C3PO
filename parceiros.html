@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M Cursos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="Logoatt.png" alt="Logo"/>
+      </div>
+      <ul>
+        <li><a href="index.html"><span class="material-icons">book</span>Projeto C3PO</a></li>
+        <li><a href="parceiros.html"><span class="material-icons">business</span>Parceiros</a></li>
+        <li><a href="contatos.html"><span class="material-icons">phone</span>Contato</a></li>
+        <li><a href="#" onclick="mostrarPerfil(event)"><span class="material-icons">person</span>Meu Perfil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+<script src="script.js"></script>
+
+  <div id="perfil-sidebar" class="perfil-sidebar">
+    <div class="perfil-header">
+      <h3>Meu Perfil</h3>
+      <button onclick="fecharPerfil()" class="fechar-btn">✖</button>
+    </div>
+    <ul class="perfil-opcoes">
+      <li><a href="#">Entrar</a></li>
+      <li><a href="#">Esqueci Minha Senha</a></li>
+      <li><a href="#">Suporte Tecnico</a></li>
+    </ul>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Projeto C3PO. Todos os direitos reservados ao grupo.</p>
+  <footer>
+  <div class="footer-icons">
+    <span id="abrirPopupTelefone"><span class="material-icons">phone</span></span>
+    <span id="abrirPopupFacebook"><span class="material-icons">facebook</span></span>
+    <span id="abrirPopupGmail"><span class="material-icons">mail</span></span>
+  </div>
+</footer>
+    </div>
+  </footer>
+
+<!-- TELEFONE -->
+<div id="popupTelefone" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupTelefone">&times;</span>
+    <h2>Telefones de Contato</h2>
+    <p><i class="material-icons">smartphone</i> (34) 99999-9999</p>
+    <p><i class="material-icons">smartphone</i> (34) 88888-8888</p>
+  </div>
+</div>
+
+<!-- FACEBOOK -->
+<div id="popupFacebook" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupFacebook">&times;</span>
+    <h2>Nosso Facebook</h2>
+    <p><i class="material-icons">facebook</i> /ProjetoC3PO</p>
+  </div>
+</div>
+
+<!-- GMAIL -->
+<div id="popupGmail" class="popup-telefone">
+  <div class="popup-conteudo">
+    <span class="fechar-popup" id="fecharPopupGmail">&times;</span>
+    <h2>Email de Contato</h2>
+    <p><i class="material-icons">email</i> contato@c3po.com</p>
+  </div>
+</div>
+</body>
+</html>
