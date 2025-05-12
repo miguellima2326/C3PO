@@ -5,49 +5,49 @@ function scrollToLeft() {
     document.getElementById('carousel').scrollBy({ left: 200, behavior: 'smooth' });
   }
   
-  document.querySelectorAll('.carousel').forEach((carousel) => {
+document.querySelectorAll('.carousel').forEach((carousel) => {
     let isDown = false;
     let startX;
     let scrollLeft;
   
-    // Mouse
-    carousel.addEventListener('mousedown', (e) => {
-      isDown = true;
-      carousel.classList.add('active');
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
+// Mouse
+carousel.addEventListener('mousedown', (e) => {
+  isDown = true;
+  carousel.classList.add('active');
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
   
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-    });
+carousel.addEventListener('mouseleave', () => {
+  isDown = false;
+  carousel.classList.remove('active');
+});
   
-    carousel.addEventListener('mouseup', () => {
-      isDown = false;
-      carousel.classList.remove('active');
-    });
+carousel.addEventListener('mouseup', () => {
+  isDown = false;
+  carousel.classList.remove('active');
+});
   
-    carousel.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 2;
-      carousel.scrollLeft = scrollLeft - walk;
-    });
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2;
+  carousel.scrollLeft = scrollLeft - walk;
+});
   
-    // Touch
-    carousel.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
+// Touch
+carousel.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
   
-    carousel.addEventListener('touchmove', (e) => {
-      const x = e.touches[0].pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 2;
-      carousel.scrollLeft = scrollLeft - walk;
-    });
-  });
+carousel.addEventListener('touchmove', (e) => {
+  const x = e.touches[0].pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2;
+  carousel.scrollLeft = scrollLeft - walk;
+});
+});
 
 // Contador de cursos
 function updateAllCourseCounters() {
@@ -71,8 +71,8 @@ function mostrarPerfil(event) {
   const secaoPerfil = document.getElementById('meu-perfil');
 
   secaoPerfil.classList.toggle('show');
-
-  //SideBar
+  
+//SideBar
 }
 function mostrarPerfil(event) {
   event.preventDefault();
@@ -129,10 +129,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Configurar todos os popups com animação
+// Configurar todos os popups com animação
   configurarPopup('abrirPopupTelefone', 'popupTelefone', 'fecharPopupTelefone');
   configurarPopup('abrirPopupFacebook', 'popupFacebook', 'fecharPopupFacebook');
   configurarPopup('abrirPopupGmail', 'popupGmail', 'fecharPopupGmail');
 });
+
+// Active pra mudar Pagina Atual na NavBar
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('.navbar ul li a');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  links.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage) {
+      link.classList.add('active');
+    }
+  });
+});
+
 
 

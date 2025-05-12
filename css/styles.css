@@ -68,9 +68,10 @@ body {
     background-attachment: fixed;
 }
 
-.navbar a.active {
-  color: #3498db;
-  transform: scale(1.2);
+.navbar ul li a.active {
+  color: #00aaff; 
+  font-weight: bold;
+  border-bottom: 2px solid #00aaff;
 }
 
 /* Lista de navegação */
