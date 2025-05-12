@@ -20,7 +20,7 @@
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
     background-color: #757575;
-    padding-top: 70px; /* Espaço para o header fixo */
+    padding-top: 7vh; /* Espaço para o header fixo */
     overflow-x: hidden;
 }
 
@@ -41,8 +41,8 @@ body {
     display: grid;
     justify-items: left;
     position: fixed;
-    left: 5%;
-    top: -1%;
+    left: 5vw;
+    top: -2vw;
 }
 
 .logo span {
@@ -51,8 +51,8 @@ body {
 }
 
 .logo img {
-    height: 100px;
-    width: 180px;
+    height: 10vh;
+    width: auto;
     margin-left: -15vw;
     
 }
@@ -62,13 +62,14 @@ body {
 .navbar {
     display: flex;
     justify-content: center;
-    padding: 30px 0;
+    padding: 3vh 0;
     background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
 
 .navbar ul li a.active {
+  font-size: 40px;
   color: #00aaff; 
   font-weight: bold;
   border-bottom: 2px solid #00aaff;
@@ -79,12 +80,12 @@ body {
     text-align: right;
     list-style: none;
     display: flex;
-    gap: 80px;
+    gap: 8vw;
 }
 
 /* Itens da lista (li) dentro da navbar */
 .navbar li {
-    font-size: 35px;
+    font-size: 2vw;
     display: flex;
     align-items: grid;
 }
@@ -113,7 +114,7 @@ body {
    SEÇÕES PRINCIPAIS DO SITE
    =================================================== */
 .about, .mission, .courses, .testimonials {
-    padding: 80px 20px;
+    padding: 8vh 5vw;
 }
 
 /* Título principal das seções */
@@ -133,14 +134,14 @@ body {
 .perfil-sidebar {
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 300px;
+    right: -30vw;
+    width: 30vw;
     height: 100%;
     background-color: #797777;
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
     z-index: 999;
     transition: right 0.3s ease;
-    padding: 20px;
+    padding: 1vw;
     overflow-y: auto;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
@@ -155,24 +156,26 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ffffff;
-    padding-bottom: 10px;
+    padding-bottom: 1vh;
+    color: #2b2b2b;
+    font-size: 1.5vw;
 }
 
 .fechar-btn {
     background: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 2.5vw;
     cursor: pointer;
 }
 
 .perfil-opcoes {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
 .perfil-opcoes li {
-    margin: 10px 0;
+    margin: 1.5vh 0;
 }
 
 .perfil-opcoes a {
@@ -193,7 +196,7 @@ body {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 10px 8px;
+    padding: 2vh 2vw;
     position: static;
     bottom: 0;
     width: 100%;
@@ -214,12 +217,13 @@ body {
 .footer-icons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 4vw;
+    font-size: 2.5vw;
 }
 
 .footer-icons a {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 2.5vw;
     transition: color 0.3s ease;
 }
 
@@ -242,7 +246,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  font-size: 20px;
+  font-size: 2vw;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   opacity: 0;
   transform: translateY(-30px);
@@ -474,17 +478,15 @@ body {
    =================================================== */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
-    border-radius: 5px;
+    border-radius: 0.5vw;
     background-color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-    width: 2px;
     background-color: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
     -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
     background-color: #D6E3FF;
 }
@@ -496,23 +498,23 @@ body {
 /* ================== RESPONSIVIDADE  ================== */
 @media (max-width: 1024px) {
     .navbar ul {
-        gap: 20px; /* Reduz o espaçamento dos itens */
+        gap: 5vw; /* Reduz o espaçamento dos itens */
     }
 
     .logo img {
-        height: 90px; /* Diminui o logo */
+        height: 9vh;
     }
 
     .navbar li {
-        font-size: 22px; /* Tamanho dos links */
+        font-size: 4vw;
     }
 
     .texto-img h1 {
-        font-size: 60px; /* Reduz texto principal */
+        font-size: 6vw;
     }
 
     .texto-img p {
-        font-size: 24px;
+        font-size: 3vw;
     }
 }
 
@@ -621,12 +623,32 @@ body {
     }
 
 @media (max-width: 480px) {
-    .texto-img h1 {
-        font-size: 40px;
+    .navbar {
+        flex-direction: column; 
+        text-align: center;
+        padding: 10px 0;
     }
 
-    .texto-img2 {
-        font-size: 28px;
+    .navbar ul {
+        gap: 4vw; 
+        flex-direction: column; 
+    }
+
+    .logo {
+        position: static; 
+        margin-bottom: 10px;
+        justify-content: center;
+        display: flex;
+    }
+
+    .logo img {
+        height: 7vh;
+        width: auto;
+    }
+
+    .texto-img h1,
+    .texto-img2 h1 {
+        font-size: 10vw; 
     }
 
     .texto-img p,
@@ -636,25 +658,94 @@ body {
     .top1 p,
     .top2 p,
     .top3 p {
-        font-size: 16px;
+        font-size: 5vw; 
     }
 
-    .top1 h1,
-    .top2 h1,
-    .top3 h1,
-    .Subtexto-img h1,
-    .Subtexto2-img h1 {
-        font-size: 24px;
+    .Subtexto-img,
+    .Subtexto2-img,
+    .top1,
+    .top2,
+    .top3 {
+        position: static;
+        margin: 10px 0; 
+        padding: 10px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .top1, .top2, .top3 {
+        font-size: 18px; 
+    }
+
+    .site-footer p {
+        font-size: 14px;
+    }
+
+    .footer-icons a {
+        font-size: 6vw;
+    }
+
+    .perfil-sidebar {
+        width: 100%;
+        right: 0;
+        position: relative;
     }
 }
 
-/* Botão de Fechar lightbox */
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar ul {
+        gap: 4vw;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .logo img {
+        height: 8vw;
+        width: auto;
+    }
+
+    .texto-img h1,
+    .texto-img2 h1 {
+        font-size: 8vw;
+    }
+
+    .texto-img p,
+    .texto-img2 p,
+    .Subtexto-img p,
+    .Subtexto2-img p,
+    .top1 p,
+    .top2 p,
+    .top3 p {
+        font-size: 4vw;
+    }
+
+    .Subtexto-img,
+    .Subtexto2-img,
+    .top1,
+    .top2,
+    .top3 {
+        position: static;
+        margin: 15px 0;
+        padding: 15px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .top1, .top2, .top3 {
+        font-size: 22px; 
+    }
+
+    .site-footer p {
+        font-size: 16px;
+    }
+
+    .footer-icons a {
+        font-size: 22px;
+    }
 }
