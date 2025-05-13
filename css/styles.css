@@ -246,7 +246,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  font-size: 2vw;
+  font-size: 1vw;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   opacity: 0;
   transform: translateY(-30px);
@@ -290,16 +290,32 @@ body {
 /* ===================================================
    TEXTO SOBRE IMAGENS E EFEITOS
    =================================================== */
-.background-1, .background-2 {
+
+.section-wrapper {
     position: relative;
+    width: 100%;
+}
+
+.background-1,
+.background-2 {
+    position: relative;
+    width: 100%;
+    height: 110vh;
+    overflow: hidden;
     text-align: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.img-background {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .texto-img {
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 35px;
@@ -318,7 +334,7 @@ body {
 
 .texto-img2 {
     position: absolute;
-    top: 6%;
+    top: 9%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 35px;
@@ -333,6 +349,7 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     perspective: 1000px;
+    z-index: 2;
 }
 
 .texto-img h1 {
@@ -351,7 +368,7 @@ body {
 
 .Subtexto-img {
     position: absolute;
-    top: 38%;
+    top: 47%;
     left: 34%;
     transform: translate(-50%, -50%);
     padding: 20px;
@@ -370,7 +387,7 @@ body {
 
 .Subtexto2-img {
     position: absolute;
-    top: 63%;
+    top: 75%;
     left: 40%;
     transform: translate(-0%, -30%);
     padding: 20px;
@@ -520,8 +537,19 @@ body {
 
 @media (max-width: 1366px) {
 
+    .background-1,
+    .background-2 {
+    position: relative;
+    width: 100%;
+    height: 170vh; /* altura total da tela */
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    }
+
     .texto-img {
         padding: 1px;
+        top: 18%;
     }
 
     .texto-img h1 {
@@ -529,55 +557,67 @@ body {
     }
 
     .Subtexto-img {
-        top: 39%;
+        top: 47%;
+    }
+
+    .Subtexto-img p {
+        font-size: 25px;
     }
 
     .Subtexto2-img {
-        top: 65%;
+        top: 75%;
+    }
+
+    .Subtexto2-img p {
+        font-size: 22px;
     }
 
     .Subtexto-img:hover {
-        transform: translate(-40%, -50%) scale(1.18);
+        transform: translate(-40%, -50%) scale(1.15);
     }
 
     .Subtexto2-img:hover {
-        transform: translate(-9%, -30%) scale(1.18);
+        transform: translate(-9%, -30%) scale(1.15);
     }
 
     .texto-img2 {
-        top: 1%;
+        top: 10%;
         font-size: 33px;
         padding: 20px;
     }
 
     .top1 {
-    top: 20%;
+    top: 32%;
     left: 50%;
     transform: translate(-0%, -30%);
     }
 
+    .top1 p, .top2 p, .top3 p {
+        font-size: 20px;
+    }
+
     .top1:hover {
-        transform:  translate(-9%, -30%) scale(1.18);
+        transform:  translate(-9%, -30%) scale(1.15);
     }
 
     .top2 {
-        top: 49%;
+        top: 56%;
         left: 40%;
         transform:translate(-65%, -30%);
     }
 
     .top2:hover {
-        transform: translate(-55%, -30%) scale(1.18);
+        transform: translate(-55%, -30%) scale(1.15);
     }
 
     .top3 {
-        top: 78%;
+        top: 81%;
         left: 52%;
         transform: translate(-0%, -30%);
     }
 
     .top3:hover {
-        transform: translate(-9%, -30%) scale(1.18);
+        transform: translate(-9%, -30%) scale(1.15);
     }
 
 }
