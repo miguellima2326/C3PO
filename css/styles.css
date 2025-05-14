@@ -134,9 +134,10 @@ body {
 .perfil-sidebar {
     position: fixed;
     top: 0;
-    right: -30vw;
+    right: -100vw;
     width: 30vw;
     height: 100%;
+    max-width: 100vw;
     background-color: #797777;
     box-shadow: -2px 0 10px rgba(0,0,0,0.2);
     z-index: 999;
@@ -455,8 +456,12 @@ body {
     transform: translate(-37%, -50%) scale(1.25);
 }
 
-.Subtexto2-img:hover, .top1:hover {
+.Subtexto2-img:hover {
     transform: translate(-12%, -40%) scale(1.25);
+}
+
+.top1:hover {
+    transform: translate(-7%, -30%) scale(1.15);
 }
 
 .top2:hover {
@@ -464,7 +469,7 @@ body {
 }
 
 .top3:hover {
-    transform: translate(-8%, -30%) scale(1.18);
+    transform: translate(-7%, -30%) scale(1.15);
 }
 
 .titulo:hover, .header li:hover, .logo:hover, .contador-curso:hover {
@@ -472,7 +477,7 @@ body {
 }
 
 .Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .contador-curso, .site-footer p {
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     transform-origin: center;
 }
 
@@ -735,9 +740,9 @@ body {
     }
 
     .perfil-sidebar {
-        width: 100%;
-        right: 0;
-        position: relative;
+        right: -100vw;
+        width: 80vw;
+        position: absolute;
     }
 }
 

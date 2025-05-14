@@ -65,6 +65,8 @@ function updateAllCourseCounters() {
 
 window.addEventListener('DOMContentLoaded', updateAllCourseCounters);
 
+//SideBar
+
 function mostrarPerfil(event) {
   event.preventDefault();
 
@@ -72,7 +74,6 @@ function mostrarPerfil(event) {
 
   secaoPerfil.classList.toggle('show');
   
-//SideBar
 }
 function mostrarPerfil(event) {
   event.preventDefault();
