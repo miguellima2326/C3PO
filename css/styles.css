@@ -844,6 +844,10 @@ body {
         /* margin-left: 0; */ /* Herdado de 480px se aplicável. */
     }
 
+    .texto-img {
+        margin-top: 22vw;
+    }
+
     .texto-img h1,
     .texto-img2 h1 {
         font-size: 10vw;
@@ -863,13 +867,17 @@ body {
         font-size: 7vw;
     }
 
-    .Subtexto-img,
-    .Subtexto2-img,
-    .top1,
-    .top2,
-    .top3 {
+    .Subtexto-img {
         position: absolute; /* Mantém estático. */
-        margin-top: -40vw; 
+        margin-top: -10vw; 
+        padding: 3px;
+        text-align: center;
+        margin-left: 16vw;
+    }
+
+    .Subtexto2-img {
+        position: absolute; /* Mantém estático. */
+        margin-top: -6vw; 
         padding: 3px;
         text-align: center;
         margin-left: 16vw;
@@ -885,6 +893,11 @@ body {
 
     .Subtexto2-img:hover {
         transform: translate(-57%, -50%) scale(1.1);
+    }
+
+    .texto-img2 h2 {
+        font-size: 10vw;
+        
     }
 
     .top1, .top2, .top3 { /* Estilo para os containers .topX */
