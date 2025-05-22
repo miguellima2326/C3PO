@@ -418,7 +418,7 @@ body {
     left: 34%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
 }
 
@@ -582,12 +582,7 @@ body {
 
 /* ===================================================
    12. RESPONSIVIDADE (MEDIA QUERIES)
-   =================================================== */
-/* O comentário original '================== RESPONSIVIDADE  ==================' foi mantido e expandido */
-/* NOTA IMPORTANTE: A ordem original das media queries (1024px, 1366px, [estilos soltos], 480px, 768px) é incomum. */
-/* A ordem padrão é geralmente crescente ou decrescente. A ordem original foi mantida. */
-
-/* 12.1. Telas Médias (Ex: Tablets em paisagem / Laptops pequenos) - max-width: 1024px */
+==================================================*/
 @media (max-width: 1024px) {
     .navbar ul {
         gap: 5vw; /* Reduz o espaçamento dos itens */
@@ -700,7 +695,6 @@ body {
 /* 12.3. ESTILOS GERAIS OU ÓRFÃOS (Originalmente após @media (max-width: 1366px) e fora de qualquer media query) */
 /* Estes estilos estavam soltos no arquivo original após o bloco '@media (max-width: 1366px)'. */
 /* Eles podem ser ajustes gerais, ou para telas menores que 1366px, ou foram colocados incorretamente. */
-/* Mantidos aqui para preservar a estrutura original o máximo possível, com comentários adicionais. */
 
 .navbar { /* Esta redefinição do .navbar afeta globalmente se não estiver em uma media query. */
     align-items: center;
@@ -827,8 +821,8 @@ body {
 }
 
 /* 12.5. Telas Menores/Tablets (Ex: Smartphones em paisagem, Tablets em retrato) - max-width: 768px */
-/* NOTA: Esta media query (768px) aparece DEPOIS da de 480px no arquivo original. */
-@media (max-width: 768px) {
+/* NOTA: Esta media query (768px) aparece DEPOIS da de 480px no arquivo original.*/
+@media (max-width: 812px) {
     /* Se as regras de 480px não devem aplicar aqui, esta media query precisa ser mais específica ou redefinir estilos. */
     /* Assumindo que esta é para telas entre 481px e 768px, ou que sobrescreve 480px. */
     .navbar {
@@ -837,7 +831,8 @@ body {
         padding: 10px 0;
     }
 
-    .navbar ul {
+    .navbar ul li a.active {
+        font-size: 7vw;
         gap: 4vw;
         flex-direction: column;
         padding: 0;
@@ -851,7 +846,7 @@ body {
 
     .texto-img h1,
     .texto-img2 h1 {
-        font-size: 8vw;
+        font-size: 10vw;
     }
 
     .texto-img p,
@@ -864,16 +859,32 @@ body {
         font-size: 4vw;
     }
 
+    .Subtexto-img h1,.Subtexto2-img h1 {
+        font-size: 7vw;
+    }
+
     .Subtexto-img,
     .Subtexto2-img,
     .top1,
     .top2,
     .top3 {
-        position: static; /* Mantém estático. */
-        margin: 15px auto; /* Margem diferente de 480px. */
-        padding: 15px;
-        width: 90%;
+        position: absolute; /* Mantém estático. */
+        margin-top: -40vw; 
+        padding: 3px;
         text-align: center;
+        margin-left: 16vw;
+    }
+
+    .Subtexto2-img {
+        transform: translate(-57%, -50%);
+    }
+
+    .Subtexto-img:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .Subtexto2-img:hover {
+        transform: translate(-57%, -50%) scale(1.1);
     }
 
     .top1, .top2, .top3 { /* Estilo para os containers .topX */
