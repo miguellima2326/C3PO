@@ -348,7 +348,14 @@ body {
 
 /* 9.3. Imagem de Fundo */
 .img-background {
-    z-index: -1; /* Atrás do conteúdo */
+    z-index: -2; /* Atrás do conteúdo */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img2-background {
+    z-index: 1; /* Atrás do conteúdo */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -415,8 +422,8 @@ body {
 .Subtexto-img {
     position: absolute;
     top: 47%;
-    left: 34%;
-    transform: translate(-50%, -50%);
+    left: 45%;
+    transform: translate(-81%, -50%);
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
@@ -433,12 +440,13 @@ body {
 
 .Subtexto2-img {
     position: absolute;
-    top: 75%;
-    left: 40%;
-    transform: translate(-0%, -30%); /* Ajuste de posicionamento */
+    top: 77%;
+    left: 47%;
+    transform: translate(-0%, -40%); /* Ajuste de posicionamento */
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    text-align: center;
 }
 
 .Subtexto2-img h1 {
@@ -466,7 +474,7 @@ body {
 
 .top2 {
     top: 55%;
-    left: 40%;
+    left: 39.7%;
     transform: translate(-65%, -30%);
 }
 
@@ -507,24 +515,24 @@ body {
 
 /* 10.2. Hover em Subtextos */
 .Subtexto-img:hover {
-    transform: translate(-37%, -50%) scale(1.25);
+    transform: translate(-74%, -50%) scale(1.15);
 }
 
 .Subtexto2-img:hover {
-    transform: translate(-12%, -40%) scale(1.25);
+    transform: translate(-9%, -40%) scale(1.15);
 }
 
 /* 10.3. Hover em Elementos 'Top' */
 .top1:hover {
-    transform: translate(-7%, -30%) scale(1.15);
+    transform: translate(-7%, -30%) scale(1.10);
 }
 
 .top2:hover {
-    transform: translate(-57%, -30%) scale(1.18);
+    transform: translate(-60.5%, -30%) scale(1.10);
 }
 
 .top3:hover {
-    transform: translate(-7%, -30%) scale(1.15);
+    transform: translate(-7%, -30%) scale(1.10);
 }
 
 /* 10.4. Hover em Outros Elementos (Títulos, Header, Logo, etc.) */
@@ -951,7 +959,7 @@ body {
     white-space: nowrap; /* Impede que os cards quebrem linha */
     cursor: grab; /* Cursor de 'agarrar' para indicar scrollável */
     user-select: none; /* Impede seleção de texto dentro do carrossel ao arrastar */
-    padding: 20px 10px; /* Preenchimento para não cortar sombras ou bordas */
+    padding: 40px 10px; /* Preenchimento para não cortar sombras ou bordas */
 }
 .carousel::-webkit-scrollbar { /* Esconde scrollbar no Chrome/Safari/Opera */
     display: none;
@@ -964,11 +972,12 @@ body {
 
 /* 13.5. Estilo dos Itens Individuais do Carrossel (Cards) */
 .course { /* Card individual */
+    height: 36vh; 
     display: inline-block; /* Para white-space: nowrap funcionar com flex */
-    min-width: 32vh; /* Largura mínima do card */
+    min-width: 35vh; /* Largura mínima do card */
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Sombra forte */
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 1); /* Sombra forte */
     cursor: pointer; /* Indica que é clicável */
     transition: transform 0.3s, border 0.3s; /* Transições suaves */
     padding: 10px;
@@ -1030,8 +1039,8 @@ body {
     width: 100%;
     height: auto;
     background-image: linear-gradient(
-    rgba(0, 0, 0, 0.3), 
-    rgba(0, 0, 0, 0.3)
+    rgba(0, 0, 0, 0.4), 
+    rgba(0, 0, 0, 0.4)
   ), url('../imagens/backP2.jpg');
     background-size: cover;
     background-position: center;
@@ -1044,7 +1053,7 @@ body {
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     transition: all 0.5s ease;
     transform-origin: center;
@@ -1057,5 +1066,4 @@ body {
     perspective: 1000px;
     font-family: 'Orbitron';
     z-index: 2;
-
 }
