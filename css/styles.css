@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
-
+@font-face {
+    font-family: 'renvem';
+    src: url('../renvem-Regular.ttf') format('truetype');
+}
 /* ===================================================
    1. RESET DE ESTILOS GLOBAIS
    =================================================== */
@@ -344,6 +347,7 @@ body {
     overflow: hidden;
     text-align: center;
     color: white;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* 9.3. Imagem de Fundo */
@@ -351,14 +355,10 @@ body {
     z-index: -2; /* Atrás do conteúdo */
     width: 100%;
     height: 100%;
+    position: absolute;
     object-fit: cover;
-}
-
-.img2-background {
-    z-index: 1; /* Atrás do conteúdo */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background: rgba(0, 0, 0, 0.4);
+    display: grid;
 }
 
 /* 9.4. Estilos de Texto Sobre Imagens */
@@ -368,26 +368,24 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); /* Centraliza */
     padding: 35px;
-    background: rgba(0, 0, 0, 0.8);
+    width: 80vw;
     border-radius: 10px;
     transition: all 0.5s ease;
     transform-origin: center;
     color: white;
-    font-size: 2.5rem;
     text-align: center;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: -100px;
     text-transform: uppercase;
-    perspective: 1000px; /* Para animações 3D */
 }
 
 .texto-img2 {
     position: absolute;
-    top: 9%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 35px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(41, 41, 41, 0.8);
     border-radius: 10px;
     transition: all 0.5s ease;
     transform-origin: center;
@@ -403,14 +401,14 @@ body {
 
 /* 9.4.1. Títulos (H1) dentro de .texto-img */
 .texto-img h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 90px;
+    font-family: 'renvem', sans-serif;
+    font-size: 6vw;
 }
 
 /* 9.4.2. Estilo específico para .texto-img2 (sobrescreve font-size anterior) */
 .texto-img2 { /* Esta regra modifica o próprio container .texto-img2 */
     font-size: 45px; 
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron' sans-serif;
 }
 
 /* 9.4.3. Parágrafos (P) dentro de .texto-img e .texto-img2 */
@@ -425,7 +423,7 @@ body {
     left: 45%;
     transform: translate(-81%, -50%);
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(41, 41, 41, 0.6);
     border-radius: 10px;
 }
 
@@ -444,7 +442,7 @@ body {
     left: 47%;
     transform: translate(-0%, -40%); /* Ajuste de posicionamento */
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(41, 41, 41, 0.7);
     border-radius: 10px;
     text-align: center;
 }
@@ -462,7 +460,7 @@ body {
 .top1, .top2, .top3 {
     position: absolute;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(41, 41, 41, 0.7);
     border-radius: 10px;
 }
 
@@ -499,8 +497,7 @@ body {
 
 /* 10.1. Hover em Textos Sobre Imagens */
 .texto-img:hover {
-    color: #00aaff;
-    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .texto-img2:hover {
@@ -536,12 +533,12 @@ body {
 }
 
 /* 10.4. Hover em Outros Elementos (Títulos, Header, Logo, etc.) */
-.titulo:hover, .header li:hover, .logo:hover, .contador-curso:hover { /* Seletor '.contador-curso' não definido. */
+.titulo:hover, .header li:hover, .logo:hover { /* Seletor '.contador-curso' não definido. */
     transform: scale(1.18);
 }
 
 /* 10.5. Transições Globais para Efeitos Suaves */
-.Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .contador-curso, .site-footer p {
+.Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .site-footer p {
     transition: all 0.5s ease;
     transform-origin: center;
 }
@@ -652,7 +649,7 @@ body {
     }
 
     .Subtexto-img:hover {
-        transform: translate(-40%, -50%) scale(1.15);
+        transform: translate(-74%, -60%) scale(1.15);
     }
 
     .Subtexto2-img:hover {
@@ -698,6 +695,7 @@ body {
     .top3:hover {
         transform: translate(-9%, -30%) scale(1.15);
     }
+
 }
 
 /* 12.3. ESTILOS GERAIS OU ÓRFÃOS (Originalmente após @media (max-width: 1366px) e fora de qualquer media query) */
@@ -750,9 +748,6 @@ body {
     font-size: 16px;
 }
 
-.social-icons a { /* Seletor '.social-icons' não definido anteriormente. */
-    font-size: 18px;
-}
 /* FIM DOS ESTILOS GERAIS OU ÓRFÃOS */
 
 /* 12.4. Telas Pequenas (Ex: Smartphones em retrato) - max-width: 480px */
@@ -942,15 +937,15 @@ body {
 
 /* 13.2. Efeito Hover nos Itens do Carrossel (Cards) */
 .course:hover { /* .course é o item individual do carrossel */
-    transform: scale(1.15); /* Aumenta o card */
+    transform: scale(1.2); /* Aumenta o card */
     z-index: 10; /* Traz para frente de outros cards no hover */
 }
 
 /* 13.3. Área de Scroll do Carrossel */
 .carousel {
-    margin-top: 29vw; /* Margem superior grande */
+    margin-top: 31vw; /* Margem superior grande */
     display: flex; /* Organiza os cards em linha */
-    gap: 60px; /* Espaçamento entre os cards */
+    gap: 5vw; /* Espaçamento entre os cards */
     overflow-x: scroll; /* Habilita scroll horizontal */
     scroll-behavior: smooth; /* Scroll suave com JS ou links internos */
     scrollbar-width: none; /* Esconde scrollbar no Firefox */
@@ -972,7 +967,7 @@ body {
 
 /* 13.5. Estilo dos Itens Individuais do Carrossel (Cards) */
 .course { /* Card individual */
-    height: 36vh; 
+    height: 38vh; 
     display: inline-block; /* Para white-space: nowrap funcionar com flex */
     min-width: 35vh; /* Largura mínima do card */
     background: white;
@@ -1005,7 +1000,7 @@ body {
 /* Imagem dentro do card do curso */
 .course img {
     width: auto;
-    max-width: 100%;
+    max-width: 60%;
     height: 16vw;
     object-fit: contain;
     margin: 0 auto;
@@ -1016,21 +1011,6 @@ body {
 }
 
 /* Estilo para curso selecionado */
-.selected {
-    border: 3px solid blue;
-    transform: scale(1.1);
-}
-
-.cursos-section, .cursos-section2, .cursos-section3 {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 60px 20px;
-    text-align: center;
-    color: #fff;
-    position: relative;
-    z-index: 1;
-}
 
 .parceiros {
     position: absolute;
@@ -1050,10 +1030,10 @@ body {
 
 .texto-imgP {
     position: absolute;
-    top: 30%;
+    top: 28%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(41, 41, 41, 0.9);
     border-radius: 10px;
     transition: all 0.5s ease;
     transform-origin: center;
@@ -1067,3 +1047,36 @@ body {
     font-family: 'Orbitron';
     z-index: 2;
 }
+
+.teste2 {
+	display: flex;
+	align-items: center;
+	.word {
+		width: 600px;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80%;
+		&:hover {
+			.char:nth-child(even) {
+				top: 20px;
+			}
+			.char:nth-child(odd) {
+				top: -20px;
+			}
+		}
+	}
+	.char {
+		flex: 1;
+		position: relative;
+		display: inline-block;
+		top: 0;
+		transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+}
+
+.word:hover {
+    color: #00aaff;
+}
+
