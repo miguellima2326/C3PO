@@ -101,10 +101,21 @@
       <button onclick="fecharPerfil()" class="fechar-btn">✖</button>
     </div>
     <ul class="perfil-opcoes">
-      <li><a href="#">Entrar</a></li>
+      <li><a href="#" onclick="mostrarFormularioLogin(event)">Entrar</a></li>
       <li><a href="#">Esqueci Minha Senha</a></li>
       <li><a href="#">Suporte Tecnico</a></li>
     </ul>
+    
+    <!-- Formulário de Login (inicialmente oculto) -->
+    <div id="login-form" class="login-form">
+      <h4>Login</h4>
+      <form onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Usuário" required>
+        <input type="password" id="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+        <button type="button" onclick="fecharFormularioLogin()" class="fechar-login-btn">Cancelar</button>
+      </form>
+    </div>
   </div>
 
   <footer class="site-footer">
