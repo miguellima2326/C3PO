@@ -10,7 +10,7 @@
 
 
 </head>
-<body>
+<body class="parceiros-page">
   <div class="parceiros">
 
   <header class="header">
@@ -21,7 +21,7 @@
       <ul>
         <li><a href="index.html"><span class="material-icons">book</span>Projeto C3PO</a></li>
         <li><a href="parceiros.html"><span class="material-icons">business</span>Parceiros</a></li>
-        <li><a href="contatos.html"><span class="material-icons">phone</span>Contato</a></li>
+        <li><a href="contatos.html "><span class="material-icons">business_center</span>Serviços</a></li>
         <li><a href="#" onclick="mostrarPerfil(event)"><span class="material-icons">person</span>Meu Perfil</a></li>
       </ul>
     </nav>
@@ -82,14 +82,40 @@
 
   <div id="perfil-sidebar" class="perfil-sidebar">
     <div class="perfil-header">
-      <h3>Meu Perfil</h3>
-      <button onclick="fecharPerfil()" class="fechar-btn">✖</button>
+        <h3><span class="material-icons">account_circle</span>Meu Perfil</h3>
+        <button onclick="fecharPerfil()" class="fechar-btn">✖</button>
     </div>
     <ul class="perfil-opcoes">
-      <li><a href="#">Entrar</a></li>
-      <li><a href="#">Esqueci Minha Senha</a></li>
-      <li><a href="#">Suporte Tecnico</a></li>
+        <li><a href="#" onclick="mostrarFormulario(event, 'login-form')"><span class="material-icons">login</span>Entrar</a></li>
+        <li><a href="#" onclick="mostrarFormulario(event, 'cadastro-form')"><span class="material-icons">lock_open</span>Primeiro Acesso</a></li>
+        <li><a href="#"><span class="material-icons">support_agent</span>Suporte</a></li>
     </ul>
+
+    <div id="login-form" class="formulario-container" style="display:none;">
+        <h4 class="login">LOGIN</h4>
+        <form onsubmit="handleLogin(event)">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
+        </form>
+        <ul class="perfil-opcoes2">
+            <li class="reset-senha"><a href="#">Esqueci Minha Senha</a></li>
+        </ul>
+    </div>
+  </div>
+
+    <div id="cadastro-form" class="formulario-container" style="display:none;">
+    <h4>Primeiro Acesso</h4>
+    <form id="form-cadastro" onsubmit="handleCadastro(event)">
+        <input type="text" id="cadastro-nome" placeholder="Nome Completo" required>
+        <input type="email" id="cadastro-email" placeholder="E-mail" required>
+        <input type="text" id="cadastro-username" placeholder="Escolha um usuário" required>
+        <input type="password" id="cadastro-password" placeholder="Crie uma senha (mín. 6 caracteres)" required>
+        <input type="password" id="cadastro-password-confirm" placeholder="Confirme a senha" required>
+        <button type="submit">Cadastrar</button>
+        <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
+    </form>
   </div>
 
   <footer class="site-footer">
@@ -131,6 +157,7 @@
     <h2>Email de Contato</h2>
     <p><i class="material-icons">email</i> contato@c3po.com</p>
   </div>
+</div>
 </div>
 </div>
 </body>

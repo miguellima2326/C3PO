@@ -51,3 +51,95 @@
 .perfil-opcoes a:hover {
 	color: #176294;
 }
+
+
+
+/* --- Estilos para Formulários na Sidebar --- */
+
+.formulario-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa; /* Fundo ligeiramente diferente para destaque */
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.formulario-container h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+    color: #343a40; /* Cor mais escura para o título */
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.formulario-container form input[type="text"],
+.formulario-container form input[type="email"],
+.formulario-container form input[type="password"] {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que padding/borda não aumentem a largura */
+    font-size: 0.95em;
+}
+
+.formulario-container form input[type="text"]:focus,
+.formulario-container form input[type="email"]:focus,
+.formulario-container form input[type="password"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.formulario-container form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 8px;
+    transition: background-color 0.2s ease;
+}
+
+/* Botão principal (Entrar/Cadastrar) */
+.formulario-container form button[type="submit"] {
+    background-color: #007bff; /* Azul padrão Bootstrap */
+    color: white;
+}
+
+.formulario-container form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Botão secundário (Cancelar) */
+.formulario-container form button[type="button"] {
+    background-color: #6c757d; /* Cinza padrão Bootstrap */
+    color: white;
+}
+
+.formulario-container form button[type="button"]:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos para links adicionais (Esqueci senha) */
+.perfil-opcoes2 {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: center; /* Centraliza o link */
+}
+
+.perfil-opcoes2 li a {
+    color: #007bff; /* Azul para links */
+    text-decoration: none;
+}
+
+.perfil-opcoes2 li a:hover {
+    text-decoration: underline;
+}
+

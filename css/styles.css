@@ -157,12 +157,15 @@ body {
 	right: -300px;
 	width: 300px;
 	height: 100%;
-	background-color: #797777;
+	background: rgba(94, 94, 94, 0.5);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 	box-shadow: -2px 0 10px rgba(0,0,0,0.2);
 	z-index: 999;
 	transition: right 0.3s ease;
 	padding: 20px;
 	overflow-y: auto;
+    font-size: 1.5vw;
 }
 
 .perfil-sidebar.show {
@@ -177,6 +180,11 @@ body {
 	padding-bottom: 10px;
 }
 
+.perfil-header h3 {
+    color: #2f2f2f;
+
+}
+
 .fechar-btn {
 	background: transparent;
 	border: none;
@@ -184,24 +192,25 @@ body {
 	cursor: pointer;
 }
 
-.perfil-opcoes {
+.perfil-opcoes, .perfil-opcoes2 {
 	list-style: none;
 	padding: 0;
 	margin-top: 20px;
 }
 
-.perfil-opcoes li {
-	margin: 10px 0;
+.perfil-opcoes li, .perfil-opcoes2 li {
+	margin: 1.5vw 0;
+    margin-top: 2vw;
 }
 
-.perfil-opcoes a {
+.perfil-opcoes a, .perfil-opcoes2 a{
 	text-decoration: none;
-	color: #333;
+	color: #ffffff;
 	font-weight: bold;
 	transition: color 0.2s;
 }
 
-.perfil-opcoes a:hover {
+.perfil-opcoes a:hover, .perfil-opcoes2 a:hover {
 	color: #176294;
 }
 
@@ -212,16 +221,15 @@ body {
   display: none; /* Inicialmente oculto */
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid #ffffff;
 }
 
 .login-form.show {
   display: block; /* Exibe quando a classe 'show' é adicionada */
 }
 
-.login-form h4 {
-  margin-bottom: 15px;
-  color: #ffffff; /* Ajuste a cor se necessário */
+.login {
+  margin-bottom: 10px;
+  color: #2f2f2f; /* Ajuste a cor se necessário */
 }
 
 .login-form input[type="text"],
@@ -276,8 +284,9 @@ body {
     color: white;
     text-align: center;
     padding: 2vh 2vw;
-    position: static; /* Originalmente 'static', 'bottom: 0' não teria efeito. */
-    /* bottom: 0; */ /* Comentado pois com position: static não se aplica */
+    position: inherit;
+    bottom: 0; /* Adicionado para fixar no fundo */
+    left: 0;   /* Adicionado para alinhar à esquerda */
     width: 100%;
     z-index: 999; /* Relevante se a posição mudar para fixed/absolute */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
@@ -1070,7 +1079,7 @@ body {
     height: auto;
     background-image: linear-gradient(
     rgba(0, 0, 0, 0.4), 
-    rgba(0, 0, 0, 0.4)
+    rgb(0, 0, 0)
   ), url('../imagens/backP2.jpg');
     background-size: cover;
     background-position: center;
@@ -1122,11 +1131,136 @@ body {
 		position: relative;
 		display: inline-block;
 		top: 0;
-		transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+		transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
 	}
 }
 
 .word:hover {
     color: #00aaff;
+}
+
+
+/* Adicione ou ajuste em seu arquivo .css */
+.formulario-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 10px;
+  background: rgba(70, 70, 70, 0.753);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.formulario-container h4 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.formulario-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-container input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.formulario-container input:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.2);
+}
+
+.formulario-container button {
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-container button[type="submit"] {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.formulario-container button[type="submit"]:hover {
+  background-color: #303f9f;
+}
+
+.fechar-login-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.fechar-login-btn:hover {
+  background-color: #bbb;
+}
+
+.perfil-opcoes2 {
+  margin-top: 10px;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.perfil-opcoes2 li a {
+  font-size: 0.9rem;
+  color: #3f51b5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.perfil-opcoes2 li a:hover {
+  color: #303f9f;
+}
+
+.reset-senha {
+    font-size: 1.2vw;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+
+
+
+
+/* ===================================================
+   14. MINIMAL FOOTER FIX FOR SPECIFIC PAGES
+   =================================================== */
+/* Apply these rules only to pages needing the footer fix */
+body.contatos-page,
+body.parceiros-page {
+    position: relative; /* Needed for absolute positioning of footer relative to body */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    /* Add padding at the bottom equal to or greater than the footer height */
+    /* Estimate footer height (padding + text + icons) - adjust as needed */
+    padding-bottom: 100px; /* Adjust this value based on actual footer height */
+}
+
+/* Ensure the absolute footer on these pages is positioned at the bottom */
+body.contatos-page .site-footer,
+body.parceiros-page .site-footer {
+    position: static;
+    width: 100%;
 }
 

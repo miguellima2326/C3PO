@@ -3,20 +3,20 @@ session_start();
 // Define o tipo de conteúdo da resposta como JSON
 header('Content-Type: application/json'); 
 
-// Prepara uma resposta padrão de erro
+// mensagem padrão de erros
 $response = ['success' => false, 'message' => 'Erro desconhecido.'];
 
 try {
-    // Certifique-se de que o caminho para usuarios.db está correto
+    // Caminho do banco de dados
     $dbPath = 'usuarios.db'; 
     if (!file_exists($dbPath)) {
         throw new Exception('Arquivo do banco de dados não encontrado.');
     }
     // Tenta abrir o banco de dados
     $db = new SQLite3($dbPath);
-    $db->enableExceptions(true); // Habilita exceções para erros do SQLite
+    $db->enableExceptions(true); 
 
-    // Verifica se os dados foram enviados via POST
+    // Verificar se os dados foram enviados via POST
     if (!isset($_POST['username']) || !isset($_POST['password'])) {
         throw new Exception('Nome de usuário ou senha não fornecidos.');
     }
@@ -24,8 +24,8 @@ try {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepara e executa a consulta de forma segura
-    $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
+    // Preparr e executar a consulta de forma segura
+    $stmt = $db->prepare('SELECT * FROM usuarios WHERE username = :username');
     if (!$stmt) throw new Exception('Falha ao preparar consulta: ' . $db->lastErrorMsg());
     
     $stmt->bindValue(':username', $username, SQLITE3_TEXT);
@@ -33,28 +33,26 @@ try {
     if (!$result) throw new Exception('Falha ao executar consulta: ' . $db->lastErrorMsg());
 
     $user = $result->fetchArray(SQLITE3_ASSOC);
-    $stmt->close(); // Fecha o statement
+    $stmt->close();
 
-    // Verifica o usuário e a senha
+    // Veerifica o usuário e a senha
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user'] = $user['username'];
-        // Define a resposta de sucesso
+        //mensagem de sucesso
         $response = ['success' => true, 'message' => 'Login bem-sucedido!'];
-        // O redirecionamento foi removido - o JavaScript cuidará disso
+
     } else {
-        // Define a mensagem de erro específica
+        // mesnagem de erro
         $response['message'] = 'Usuário ou senha incorretos.';
     }
 
-    $db->close(); // Fecha a conexão com o banco
+    $db->close(); 
 
 } catch (Exception $e) {
-    // Em caso de qualquer erro, registra (opcional) e define a mensagem de erro genérica
-    error_log('Erro em login.php: ' . $e->getMessage()); // Log para debug
+    
+    error_log('Erro em login.php: ' . $e->getMessage()); 
     $response['message'] = 'Ocorreu um erro no servidor. Tente novamente.';
-    // http_response_code(500 ); // Opcional: definir código de erro HTTP
 }
 
-// Envia a resposta final como JSON
 echo json_encode($response); 
 ?>
