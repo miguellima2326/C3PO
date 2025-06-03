@@ -196,7 +196,7 @@ body {
 }
 
 .perfil-header h3 {
-    color: #2f2f2f;
+    color: #ffffff;
 }
 
 .fechar-btn {
@@ -237,11 +237,6 @@ body {
 
 .login-form.show {
   display: block;
-}
-
-.login { /* Este seletor estiliza um elemento com a classe 'login', provavelmente um título */
-  margin-bottom: 10px;
-  color: #2f2f2f;
 }
 
 .login-form input[type="text"],
@@ -746,7 +741,7 @@ body {
 .formulario-container h4 {
   margin-bottom: 10px;
   font-size: 1.5rem;
-  color: #333;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -858,15 +853,12 @@ body {
 .titulo:hover, .header li:hover, .logo:hover {
     transform: scale(1.18);
 }
-/* Seletor .contador-curso:hover não definido no CSS fornecido */
-/* Seletor .material-icons:hover não definido no CSS fornecido */
-/* Exemplo para .material-icons, se existir:
+
 .material-icons:hover {
     transform: scale(1.1);
     color: #00bfae;
     cursor: pointer;
 }
-*/
 
 /* 11.6. Hover on Footer Elements */
 .site-footer:hover {
@@ -993,6 +985,31 @@ body.parceiros-page .site-footer {
     .top3:hover {
         transform: translate(-9%, -30%) scale(1.15); /* Ajuste do hover para esta resolução */
     }
+
+
+
+    /* ========== Pagina Serviços ========== */
+    
+    .analise {
+        top: 30vw !important;
+    }
+
+    .monitoramento {
+        top: 85vw !important;
+    }
+
+    .pentest {
+        top: 138vw !important;
+    }
+
+    .s2 {
+        top: 86vw !important;
+    }
+
+    .s3 {
+        top: 138vw !important ;
+    }
+
 }
 
 /* 14.2. Telas Médias (Ex: Tablets em paisagem) - max-width: 1024px */
@@ -1018,6 +1035,7 @@ body.parceiros-page .site-footer {
     .texto-img p {
         font-size: 3vw;
     }
+    
 }
 
 /* 14.3. Telas Menores/Tablets (Ex: Tablets em retrato) - max-width: 812px (e similares) */
@@ -1190,6 +1208,192 @@ body.parceiros-page .site-footer {
     }
 }
 
+
+/* ===================================================
+   15. Estilização exclusiva da pagina contatos.html
+   =================================================== */
+
+.secao-fundo {
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+ }
+
+   
+.fundo1 {
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('../imagens/serv1.jpg');
+      background-size: cover;
+      background-position: center;
+ }
+
+.fundo2 {
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../imagens/serv2.jpg');
+      background-size: cover;
+      background-position: center;
+ }
+
+.fundo3 {
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../imagens/serv3.jpg');
+      background-size: cover;
+      background-position: center;
+ }
+
+.conteudo h1 {
+    font-size: 7vw;
+}
+
+.conteudo p {
+    font-size: 1vw;
+}
+
+.conteudo {
+    margin-bottom: 20vw;
+}
+
+.titulo-servico {
+    transition: transform 0.3s ease;
+}
+
+.s1 {
+    position: absolute;
+    top: 31vw;
+    left: 6vw;
+    padding: 30px  30px 80px 30px;
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.s1 img {
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.s1 p {
+    font-size: 30px;
+    margin-top: 1vw;
+    color: #242222;
+}
+
+.analise {
+    position: absolute;
+    text-align: justify;
+    max-width: 40vw;
+    top: 33vw;
+    right: 6vw;
+
+}
+
+.analise p {
+    font-size: 38px;
+    transition: transform 0.3s ease;
+}
+
+.s2 {
+    position: absolute;
+    top: 66vw;
+    right: 6vw;
+    padding: 30px  30px 80px 30px;
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.s2 p {
+    font-size: 30px;
+    margin-top: 1vw;
+    color: #242222;
+}
+
+.s2 img {
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.monitoramento {
+    position: absolute;
+    text-align: justify;
+    max-width: 40vw;
+    top: 68vw;
+    left: 6vw;
+}
+
+.monitoramento p {
+    font-size: 38px;
+    transition: transform 0.3s ease;
+}
+
+.s3 {
+    position: absolute;
+    top: 101vw;
+    left: 6vw;
+    padding: 30px  30px 80px 30px;
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.s3 p {
+    font-size: 30px;
+    margin-top: 1vw;
+    color: #242222;
+}
+
+.s3 img {
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pentest {
+    position: absolute;
+    text-align: justify;
+    max-width: 40vw;
+    top: 101vw;
+    right: 6vw;
+}
+
+.pentest p {
+    font-size: 38px;
+    transition: transform 0.3s ease;
+}
+
+
+    /* ========= HOVER's =========== */
+.analise p:hover {
+    transform: scale(1.1);
+}
+
+.monitoramento p:hover {
+    transform: scale(1.1);
+}
+
+.pentest p:hover {
+    transform: scale(1.1);
+}
+
+.titulo-servico:hover {
+    transform: scale(1.1);
+}
+
+.s1:hover{
+    transform: scale(1.1);
+    
+}
+
+.s2:hover {
+    transform: scale(1.1);
+}
+
+.s3:hover {
+    transform: scale(1.1);
+}
 /* ===================================================
    FIM DO ARQUIVO CSS
    =================================================== */

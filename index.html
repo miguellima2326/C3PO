@@ -110,9 +110,10 @@
     </ul>
 
     <div id="login-form" class="formulario-container" style="display:none;">
+      
         <h4 class="login">LOGIN</h4>
-        <form onsubmit="handleLogin(event)">
-            <input type="text" id="username" placeholder="Usuário" required>
+        <form onsubmit="handleLogin(event)" autocomplete="off">
+            <input type="text" id="username" placeholder="Usuário" required autocomplete="off">
             <input type="password" id="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
             <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
@@ -124,10 +125,10 @@
 
     <div id="cadastro-form" class="formulario-container" style="display:none;">
     <h4>Primeiro Acesso</h4>
-    <form id="form-cadastro" onsubmit="handleCadastro(event)">
-        <input type="text" id="cadastro-nome" placeholder="Nome Completo" required>
-        <input type="email" id="cadastro-email" placeholder="E-mail" required>
-        <input type="text" id="cadastro-username" placeholder="Escolha um usuário" required>
+    <form id="form-cadastro" onsubmit="handleCadastro(event)" autocomplete="off">
+        <input type="text" id="cadastro-nome" placeholder="Nome Completo" required autocomplete="off">
+        <input type="email" id="cadastro-email" placeholder="E-mail" required autocomplete="off">
+        <input type="text" id="cadastro-username" placeholder="Escolha um usuário" required autocomplete="off">
         <input type="password" id="cadastro-password" placeholder="Crie uma senha (mín. 6 caracteres)" required>
         <input type="password" id="cadastro-password-confirm" placeholder="Confirme a senha" required>
         <button type="submit">Cadastrar</button>
