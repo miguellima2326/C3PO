@@ -1,10 +1,15 @@
+/* ===================================================
+   0. FONT IMPORTS & FONT FACES
+   =================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
 @font-face {
     font-family: 'renvem';
     src: url('../renvem-Regular.ttf') format('truetype');
 }
+
 /* ===================================================
-   1. RESET DE ESTILOS GLOBAIS
+   1. GLOBAL RESET & BASE STYLES
    =================================================== */
 * {
     margin: 0;
@@ -18,37 +23,37 @@
 }
 
 /* ===================================================
-   2. ESTILIZAÇÃO GERAL DO CORPO (BODY)
+   2. BODY STYLING
    =================================================== */
 body {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Removido 'sans-serif' duplicado */
     background-color: #757575;
     padding-top: 7vh; /* Espaço para o header fixo */
     overflow-x: hidden; /* Evita scroll horizontal */
 }
 
 /* ===================================================
-   3. CABEÇALHO (HEADER)
+   3. HEADER & NAVIGATION
    =================================================== */
 
-/* 3.1. Estilo Base do Cabeçalho Fixo */
+/* 3.1. Header Container */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #333; /* Cor de fundo escura para o cabeçalho */
-    z-index: 10; /* Garante que o cabeçalho fique sobre outros elementos */
+    background: #333;
+    z-index: 10;
+    /* OBS: Efeitos de hover para .header li e .logo estão na seção 11. ANIMAÇÕES */
 }
 
-/* 3.2. Logo Dentro da Navbar/Cabeçalho */
-/* O comentário original 'Logo Navbar' foi mantido e expandido */
+/* 3.2. Logo */
 .logo {
-    display: grid; /* Usado para alinhamento */
-    justify-items: left; /* Alinha itens à esquerda no grid */
-    position: fixed; /* Posição fixa para o logo */
-    left: 5vw; /* Distância da esquerda */
-    top: -2vw; /* Distância do topo (pode causar corte, verificar visualmente) */
+    display: grid;
+    justify-items: left;
+    position: fixed; /* Alterado para 'static' em estilos "órfãos" mais abaixo e em media queries */
+    left: 5vw;
+    top: -2vw; /* Pode causar corte, verificar visualmente */
 }
 
 .logo span {
@@ -57,85 +62,91 @@ body {
 }
 
 .logo img {
-    height: 12vh; /* Altura do logo */
-    width: auto; /* Largura automática para manter proporção */
-    margin-left: -15vw; /* Margem negativa, pode causar sobreposição ou corte */
+    height: 12vh;
+    width: auto;
+    margin-left: -15vw; /* Pode causar sobreposição ou corte */
 }
 
-/* 3.3. Barra de Navegação (Navbar) */
-/* O comentário original 'Barra de navegação' foi mantido e expandido */
+/* 3.3. Navbar */
 .navbar {
     display: flex;
-    justify-content: center; /* Centraliza os itens da navbar */
-    padding: 3vh 0; /* Preenchimento vertical */
-    background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center; /* Imagem de fundo */
-    background-size: cover; /* Cobre toda a área da navbar */
-    background-attachment: fixed; /* Fundo fixo durante o scroll */
+    justify-content: center;
+    padding: 3vh 0;
+    background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* OBS: Ajustes para .navbar (padding, align-items, text-align) foram encontrados soltos ("órfãos")
+       e são aplicados abaixo, podendo indicar um estilo base para telas menores que 1366px. */
 }
 
-/* 3.3.1. Item Ativo na Navbar */
-.navbar ul li a.active {
-  font-size: 40px; /* Tamanho da fonte para o item ativo */
-  color: #00aaff;  /* Cor do item ativo */
-  font-weight: bold;
-  border-bottom: 2px solid #00aaff; /* Linha inferior para destacar */
-}
-
-/* 3.3.2. Lista de Navegação (UL) */
-/* O comentário original 'Lista de navegação' foi mantido e expandido */
 .navbar ul {
-    text-align: right; /* Alinhamento do texto (flexbox no pai já centraliza o ul) */
-    list-style: none; /* Remove marcadores de lista */
-    display: flex; /* Organiza itens em linha */
-    gap: 8vw; /* Espaçamento entre os itens */
-}
-
-/* 3.3.3. Itens da Lista (LI) na Navbar */
-/* O comentário original 'Itens da lista (li) dentro da navbar' foi mantido e expandido */
-.navbar li {
-    font-size: 2vw; /* Tamanho da fonte responsivo */
+    text-align: right; /* Flexbox no pai (.navbar) já centraliza o ul */
+    list-style: none;
     display: flex;
-    align-items: center; /* Alinha itens verticalmente */
+    gap: 8vw;
+    /* OBS: 'gap: 100px' e 'padding: 0' foram encontrados em estilos "órfãos" e aplicados abaixo. */
 }
 
-/* 3.3.4. Links da Navbar (A) */
-/* O comentário original 'Texto do menu de navegação' foi mantido e expandido */
+.navbar li {
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+}
+
 .navbar a {
-    text-decoration: none; /* Remove sublinhado */
-    color: white; /* Cor do texto */
+    text-decoration: none;
+    color: white;
     font-weight: bold;
-    transition: color 0.3s; /* Transição suave da cor */
+    transition: color 0.3s ease; /* 'ease, 0.3s' corrigido para '0.3s ease' */
 }
 
-/* 3.3.5. Efeito Hover nos Links da Navbar */
-/* O comentário original 'Efeito de hover nos links da navbar' foi mantido e expandido */
 .navbar a:hover {
-    color: #3498db; /* Cor ao passar o mouse */
-    transition: ease, 0.3s; /* Transição suave (nota: 'ease, 0.3s' pode ser 'ease 0.3s') */
+    color: #3498db;
+    /* transition: ease 0.3s;  A transição já está no seletor 'a' */
 }
+
+.navbar ul li a.active {
+  font-size: 40px;
+  color: #00aaff;
+  font-weight: bold;
+  border-bottom: 2px solid #00aaff;
+}
+
+/* 3.4. Ajustes/Overrides no Header e Navbar (Estilos "Órfãos" Integrados) */
+/* Estes estilos foram encontrados soltos após a media query de 1366px.
+   Podem ser ajustes gerais para telas menores ou um estado base antes de media queries mais específicas. */
+.navbar { /* Redefinição/Ajuste */
+    align-items: center;
+    padding: 10px 0; /* Sobrescreve padding anterior */
+    text-align: center;
+}
+
+.navbar ul { /* Redefinição/Ajuste */
+    gap: 100px; /* Espaçamento grande, sobrescreve o gap anterior */
+    padding: 0;
+}
+
+.logo { /* Muda .logo de 'fixed' para 'static' */
+    position: static;
+    display: flex; /* Sobrescreve display: grid */
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo img { /* Ajuste */
+    height: 13vh; /* Sobrescreve altura anterior */
+    /* width: auto; já definido */
+    margin-left: -17vw; /* Ajusta margem */
+}
+
 
 /* ===================================================
-   4. ÍCONES (ESTILO INICIAL PARA FOOTER-ICONS)
+   4. MAIN CONTENT SECTIONS & TITLES
    =================================================== */
-/* Nota: '.footer-icons' é definido aqui e novamente na seção de rodapé. Esta pode ser uma definição base ou para outro contexto. */
-.footer-icons {
-    position: relative;
-    top: 10%; /* Ajuste de posicionamento vertical */
-    font-size: 30px !important; /* Tamanho da fonte. Uso de !important deve ser criterioso. */
+.about, .mission, .courses, .testimonials {
+    padding: 8vh 5vw;
 }
 
-/* ===================================================
-   5. SEÇÕES PRINCIPAIS DO CONTEÚDO
-   =================================================== */
-/* O comentário original 'SEÇÕES PRINCIPAIS DO SITE' foi mantido e expandido */
-
-/* 5.1. Estilo Comum para Seções de Conteúdo */
-.about, .mission, .courses, .testimonials { /* Classes para seções como 'Sobre', 'Missão', 'Cursos', 'Depoimentos' */
-    padding: 8vh 5vw; /* Preenchimento interno */
-}
-
-/* 5.2. Título Principal das Seções */
-/* O comentário original 'Título principal das seções' foi mantido e expandido */
 .titulo {
     display: inline-block;
     padding-top: 40px;
@@ -143,19 +154,23 @@ body {
     font-weight: bold;
     color: #ffffff;
     font-size: 50px;
+    /* OBS: Efeito de hover para .titulo está na seção 11. ANIMAÇÕES */
+    /* OBS: 'font-size: 36px' foi encontrado em estilos "órfãos" e aplicado abaixo. */
+}
+
+/* 4.1. Ajustes/Overrides em Títulos (Estilos "Órfãos" Integrados) */
+.titulo { /* Redefinição/Ajuste */
+    font-size: 36px; /* Sobrescreve font-size anterior */
 }
 
 /* ===================================================
-   6. SIDEBAR DE PERFIL
+   5. SIDEBAR PROFILE
    =================================================== */
-/* O comentário original 'SIDEBAR DE PERFIL' foi mantido e expandido */
-
-/* 6.1. Container da Sidebar */
 .perfil-sidebar {
 	position: fixed;
 	top: 0;
-	right: -300px;
-	width: 300px;
+	right: -300px; /* Ajustado em media queries */
+	width: 300px;  /* Ajustado em media queries */
 	height: 100%;
 	background: rgba(94, 94, 94, 0.5);
     backdrop-filter: blur(10px);
@@ -182,7 +197,6 @@ body {
 
 .perfil-header h3 {
     color: #2f2f2f;
-
 }
 
 .fechar-btn {
@@ -203,7 +217,7 @@ body {
     margin-top: 2vw;
 }
 
-.perfil-opcoes a, .perfil-opcoes2 a{
+.perfil-opcoes a, .perfil-opcoes2 a {
 	text-decoration: none;
 	color: #ffffff;
 	font-weight: bold;
@@ -214,27 +228,25 @@ body {
 	color: #176294;
 }
 
-
-
-/* Estilos para o formulário de login na sidebar */
+/* 5.1. Login Form (within Sidebar) */
 .login-form {
-  display: none; /* Inicialmente oculto */
+  display: none;
   margin-top: 20px;
   padding-top: 15px;
 }
 
 .login-form.show {
-  display: block; /* Exibe quando a classe 'show' é adicionada */
+  display: block;
 }
 
-.login {
+.login { /* Este seletor estiliza um elemento com a classe 'login', provavelmente um título */
   margin-bottom: 10px;
-  color: #2f2f2f; /* Ajuste a cor se necessário */
+  color: #2f2f2f;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
-  width: calc(100% - 22px); /* Ajusta para padding e borda */
+  width: calc(100% - 22px); /* Considera padding e borda */
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -250,7 +262,7 @@ body {
 }
 
 .login-form button[type="submit"] {
-  background-color: #176294; /* Cor principal */
+  background-color: #176294;
   color: white;
 }
 
@@ -267,104 +279,133 @@ body {
   background-color: #bbb;
 }
 
-/* Opcional: Ocultar opções padrão quando o login é exibido */
+/* Ocultar opções padrão quando o login é exibido */
 .perfil-sidebar.login-active .perfil-opcoes {
   display: none;
 }
 
+/* 5.2. Additional Profile Options (perfil-opcoes2 specific adjustments) */
+.perfil-opcoes2 { /* Já definido acima, este é um ajuste ou complemento */
+  margin-top: 10px;
+  text-align: center;
+}
+
+.perfil-opcoes2 li a { /* Sobrescreve/complementa '.perfil-opcoes a' */
+  font-size: 0.9rem;
+  color: #3f51b5;
+}
+
+.perfil-opcoes2 li a:hover { /* Sobrescreve/complementa '.perfil-opcoes a:hover' */
+  color: #303f9f;
+}
+
+.reset-senha { /* Estilo para link/texto de reset de senha */
+    font-size: 1.2vw;
+}
 
 /* ===================================================
-   7. RODAPÉ (FOOTER)
+   6. FOOTER
    =================================================== */
-/* O comentário original 'RODAPÉ FIXO DO SITE' foi mantido e expandido (posição original era 'static') */
-
-/* 7.1. Estilo Base do Rodapé */
 .site-footer {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
     padding: 2vh 2vw;
-    position: inherit;
-    bottom: 0; /* Adicionado para fixar no fundo */
-    left: 0;   /* Adicionado para alinhar à esquerda */
+    position: inherit; /* Original era 'static'. Se precisar fixar, usar 'fixed' ou 'sticky'. */
+    /* bottom: 0;  Só faz sentido com position: fixed/absolute/sticky */
+    /* left: 0;    Só faz sentido com position: fixed/absolute/sticky */
     width: 100%;
-    z-index: 999; /* Relevante se a posição mudar para fixed/absolute */
+    /* z-index: 999; Só faz sentido com position que cria novo stacking context */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+    /* OBS: Efeitos de hover para .site-footer e .site-footer p estão na seção 11. ANIMAÇÕES */
 }
 
-/* 7.2. Conteúdo Interno do Rodapé */
 .footer-content {
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza */
+    margin: 0 auto;
 }
 
 .footer-content p {
     margin-bottom: 10px;
     font-size: 19px;
+    /* OBS: 'font-size: 16px' foi encontrado em estilos "órfãos" e aplicado abaixo. */
 }
 
-/* 7.3. Ícones no Rodapé (Segunda Definição/Especialização) */
-.footer-icons { /* Esta é a segunda definição de .footer-icons, mais específica para o rodapé */
+/* 6.1. Footer Icons */
+/* Primeira definição de .footer-icons (pode ser base ou para outro contexto) */
+.footer-icons {
+    position: relative;
+    top: 10%;
+    font-size: 30px !important; /* Uso de !important deve ser criterioso. */
+}
+
+/* Segunda definição/especialização para ícones no rodapé */
+.site-footer .footer-icons { /* Mais específico para o rodapé */
     display: flex;
     justify-content: center;
     gap: 4vw;
-    font-size: 2.5vw; /* Sobrescreve ou complementa a definição anterior de .footer-icons */
+    font-size: 2.5vw; /* Sobrescreve a definição anterior de .footer-icons para este contexto */
+    position: static; /* Reseta position: relative da regra anterior */
+    top: auto; /* Reseta top: 10% da regra anterior */
 }
 
-.footer-icons a {
+.site-footer .footer-icons a {
     color: #ffffff;
-    font-size: 2.5vw; /* Garante que o link tenha o mesmo tamanho do ícone */
+    font-size: 2.5vw;
     transition: color 0.3s ease;
 }
 
-.footer-icons a:hover {
+.site-footer .footer-icons a:hover {
     color: #3498db;
 }
 
-/* ===================================================
-   8. POP-UPS (MODAIS) DO RODAPÉ
-   =================================================== */
-/* O comentário original 'PopUp Rodapé' foi mantido e expandido */
+/* 6.2. Ajustes/Overrides no Footer (Estilos "Órfãos" Integrados) */
+.footer-icons { /* Terceira definição de .footer-icons, provavelmente um override global. */
+    font-size: 24px !important; /* Sobrescreve definições anteriores de .footer-icons globalmente */
+    top: 0; /* Reseta o 'top' das definições anteriores. */
+}
 
-/* 8.1. Estilo Base Comum para Pop-ups */
+.site-footer p { /* Redefinição/Ajuste */
+    font-size: 16px; /* Sobrescreve font-size anterior */
+}
+
+
+/* ===================================================
+   7. POP-UPS / MODALS (Rodapé)
+   =================================================== */
 .popup-telefone, .popup-facebook, .popup-gmail {
   color: #333131;
-  display: none; /* Inicialmente escondido; JS controlará para 'flex' ou 'grid' */
+  display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(58, 58, 58, 0.6); /* Overlay */
-  /* Para 'justify-content' e 'align-items' funcionarem, display deve ser flex/grid */
+  background-color: rgba(58, 58, 58, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 10000;
   font-size: 1vw;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  opacity: 0; /* Para animação */
-  transform: translateY(-30px); /* Posição inicial da animação */
+  opacity: 0;
+  transform: translateY(-30px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* 8.2. Classes para Mostrar Pop-ups (com display: flex) */
 .popup-telefone.show,
 .popup-facebook.show,
 .popup-gmail.show {
-  display: flex; /* Habilita centralização com justify-content e align-items */
+  display: flex;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 8.3. Classes para Animar Saída de Pop-ups */
 .popup-telefone.hide,
 .popup-facebook.hide,
 .popup-gmail.hide {
   opacity: 0;
   transform: translateY(-30px);
-  /* Após a animação, JS deve redefinir para display: none */
 }
 
-/* 8.4. Conteúdo Interno do Pop-up */
 .popup-conteudo {
   background: white;
   padding: 30px;
@@ -373,10 +414,9 @@ body {
   max-width: 400px;
   width: 80%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  position: relative; /* Para posicionar o botão de fechar */
+  position: relative;
 }
 
-/* 8.5. Botão de Fechar Pop-up */
 .fechar-popup {
   position: absolute;
   top: 10px;
@@ -387,46 +427,41 @@ body {
 }
 
 /* ===================================================
-   9. ELEMENTOS COM IMAGENS DE FUNDO E TEXTO SOBREPOSTO
+   8. ELEMENTS WITH BACKGROUND IMAGES & OVERLAID TEXT
    =================================================== */
-/* O comentário original 'TEXTO SOBRE IMAGENS E EFEITOS' foi mantido e expandido */
-
-/* 9.1. Wrapper de Seção */
 .section-wrapper {
     position: relative;
     width: 100%;
 }
 
-/* 9.2. Backgrounds com Imagem */
 .background-1,
 .background-2 {
     position: relative;
     width: 100%;
-    height: 110vh;
+    height: 110vh; /* Ajustado em media queries */
     overflow: hidden;
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Overlay de cor base */
 }
 
-/* 9.3. Imagem de Fundo */
 .img-background {
-    z-index: -2; /* Atrás do conteúdo */
+    z-index: -2;
     width: 100%;
     height: 100%;
     position: absolute;
     object-fit: cover;
-    background: rgba(0, 0, 0, 0.4);
-    display: grid;
+    /* background: rgba(0, 0, 0, 0.4);  Este background pode ser desnecessário se .background-1/2 já tem overlay */
+    display: grid; /* Uso incomum para imagem de fundo, verificar intenção */
 }
 
-/* 9.4. Estilos de Texto Sobre Imagens */
+/* 8.1. Overlaid Text Styles */
 .texto-img {
     position: absolute;
-    top: 20%;
+    top: 20%; /* Ajustado em media queries */
     left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza */
-    padding: 35px;
+    transform: translate(-50%, -50%);
+    padding: 35px; /* Ajustado em media queries */
     width: 80vw;
     border-radius: 10px;
     transition: all 0.5s ease;
@@ -434,22 +469,32 @@ body {
     color: white;
     text-align: center;
     font-weight: bold;
-    letter-spacing: -100px;
+    letter-spacing: -100px; /* Valor muito negativo, verificar visualmente */
     text-transform: uppercase;
+}
+
+.texto-img h1 {
+    font-family: 'renvem', sans-serif;
+    font-size: 6vw; /* Ajustado em media queries */
+}
+
+.texto-img p {
+    font-size: 30px; /* Ajustado em media queries */
 }
 
 .texto-img2 {
     position: absolute;
-    top: 10%;
+    top: 10%; /* Ajustado em media queries */
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 35px;
+    padding: 35px; /* Ajustado em media queries */
     background: rgba(41, 41, 41, 0.8);
     border-radius: 10px;
     transition: all 0.5s ease;
     transform-origin: center;
     color: white;
-    font-size: 2.5rem; /* Será sobrescrito pela regra abaixo */
+    font-size: 45px; /* Originalmente 2.5rem, depois sobrescrito para 45px. Ajustado em media queries. */
+    font-family: 'Orbitron', sans-serif; /* Corrigido: vírgula entre Orbitron e sans-serif */
     text-align: center;
     font-weight: bold;
     letter-spacing: 2px;
@@ -458,87 +503,72 @@ body {
     z-index: 2;
 }
 
-/* 9.4.1. Títulos (H1) dentro de .texto-img */
-.texto-img h1 {
-    font-family: 'renvem', sans-serif;
-    font-size: 6vw;
+.texto-img2 p { /* Herda de '.texto-img p' se o HTML for similar, mas pode ser específico */
+    font-size: 30px; /* Ajustado em media queries */
 }
 
-/* 9.4.2. Estilo específico para .texto-img2 (sobrescreve font-size anterior) */
-.texto-img2 { /* Esta regra modifica o próprio container .texto-img2 */
-    font-size: 45px; 
-    font-family: 'Orbitron' sans-serif;
-}
-
-/* 9.4.3. Parágrafos (P) dentro de .texto-img e .texto-img2 */
-.texto-img p, .texto-img2 p {
-    font-size: 30px;
-}
-
-/* 9.5. Subtextos Sobre Imagens */
+/* 8.2. Sub-text Overlays */
 .Subtexto-img {
     position: absolute;
-    top: 47%;
+    top: 47%; /* Ajustado em media queries */
     left: 45%;
     transform: translate(-81%, -50%);
     padding: 20px;
     background: rgba(41, 41, 41, 0.6);
     border-radius: 10px;
+    transition: all 0.5s ease; /* Movido para seção 11. ANIMAÇÕES */
+    transform-origin: center; /* Movido para seção 11. ANIMAÇÕES */
 }
 
 .Subtexto-img h1 {
-    font-size: 40px;
+    font-size: 40px; /* Ajustado em media queries */
 }
 
 .Subtexto-img p {
-    font-size: 25px;
+    font-size: 25px; /* Ajustado em media queries */
     text-align: justify;
 }
 
 .Subtexto2-img {
     position: absolute;
-    top: 77%;
+    top: 77%; /* Ajustado em media queries */
     left: 47%;
     transform: translate(-0%, -40%); /* Ajuste de posicionamento */
     padding: 20px;
     background: rgba(41, 41, 41, 0.7);
     border-radius: 10px;
     text-align: center;
+    transition: all 0.5s ease; /* Movido para seção 11. ANIMAÇÕES */
+    transform-origin: center; /* Movido para seção 11. ANIMAÇÕES */
 }
 
 .Subtexto2-img h1 {
-    font-size: 40px;
+    font-size: 40px; /* Ajustado em media queries */
 }
 
 .Subtexto2-img p {
-    font-size: 25px;
+    font-size: 25px; /* Ajustado em media queries */
     text-align: justify;
 }
 
-/* 9.6. Elementos 'Top' (Blocos de Informação Sobre Imagens) */
+/* 8.3. "Top" Informational Blocks */
 .top1, .top2, .top3 {
     position: absolute;
     padding: 20px;
     background: rgba(41, 41, 41, 0.7);
     border-radius: 10px;
+    transition: all 0.5s ease; /* Movido para seção 11. ANIMAÇÕES */
+    transform-origin: center; /* Movido para seção 11. ANIMAÇÕES */
 }
 
 .top1 {
-    top: 28%;
-    left: 60%;
-    transform: translate(-0%, -30%);
+    top: 28%; left: 60%; transform: translate(-0%, -30%); /* Ajustado em media queries */
 }
-
 .top2 {
-    top: 55%;
-    left: 39.7%;
-    transform: translate(-65%, -30%);
+    top: 55%; left: 39.7%; transform: translate(-65%, -30%); /* Ajustado em media queries */
 }
-
 .top3 {
-    top: 80%;
-    left: 60%;
-    transform: translate(-0%, -30%);
+    top: 80%; left: 60%; transform: translate(-0%, -30%); /* Ajustado em media queries */
 }
 
 .top1 h1, .top2 h1, .top3 h1 {
@@ -546,517 +576,75 @@ body {
 }
 
 .top1 p, .top2 p, .top3 p {
-    font-size: 25px;
+    font-size: 25px; /* Ajustado em media queries */
 }
 
 /* ===================================================
-   10. ANIMAÇÕES AO PASSAR O MOUSE (HOVER EFFECTS)
+   9. CAROUSEL (Partners/Courses)
    =================================================== */
-/* O comentário original 'ANIMAÇÕES AO PASSAR O MOUSE' foi mantido e expandido */
-
-/* 10.1. Hover em Textos Sobre Imagens */
-.texto-img:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.texto-img2:hover {
-    color: #00aaff;
-    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
-}
-
-.texto-imgP:hover { /* Seletor '.texto-imgP' não foi definido anteriormente no CSS. Verificar se é usado ou erro. */
-    color: #00aaff;
-    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
-}
-
-/* 10.2. Hover em Subtextos */
-.Subtexto-img:hover {
-    transform: translate(-74%, -50%) scale(1.15);
-}
-
-.Subtexto2-img:hover {
-    transform: translate(-9%, -40%) scale(1.15);
-}
-
-/* 10.3. Hover em Elementos 'Top' */
-.top1:hover {
-    transform: translate(-7%, -30%) scale(1.10);
-}
-
-.top2:hover {
-    transform: translate(-60.5%, -30%) scale(1.10);
-}
-
-.top3:hover {
-    transform: translate(-7%, -30%) scale(1.10);
-}
-
-/* 10.4. Hover em Outros Elementos (Títulos, Header, Logo, etc.) */
-.titulo:hover, .header li:hover, .logo:hover { /* Seletor '.contador-curso' não definido. */
-    transform: scale(1.18);
-}
-
-/* 10.5. Transições Globais para Efeitos Suaves */
-.Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo, .site-footer, .header li, .logo, .site-footer p {
-    transition: all 0.5s ease;
-    transform-origin: center;
-}
-
-/* 10.6. Hover no Rodapé */
-.site-footer:hover {
-    transform: scale(1.18);
-}
-
-.site-footer p:hover {
-    color: #00bfae;
-}
-
-/* 10.7. Hover em Ícones Material Design (se houver) */
-.material-icons:hover { /* Seletor '.material-icons' não definido. */
-    transform: scale(1.1);
-    color: #00bfae;
-    cursor: pointer;
-}
-
-/* ===================================================
-   11. ESTILIZAÇÃO DA BARRA DE SCROLL (WEBKIT BROWSERS)
-   =================================================== */
-/* O comentário original 'SCROLL BAR WEB-KIT' foi mantido e expandido */
-
-::-webkit-scrollbar-track { /* Trilha da barra de scroll */
-    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
-    border-radius: 0.5vw;
-    background-color: #ffffff;
-}
-
-::-webkit-scrollbar { /* Barra de scroll em si */
-    background-color: #ffffff;
-    /* width: 8px; */ /* Exemplo: definir largura da barra */
-}
-
-::-webkit-scrollbar-thumb { /* 'Polegar' da barra de scroll */
-    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
-    background-color: #D6E3FF;
-    /* border-radius: 0.5vw; */ /* Para combinar com o track */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #B0C4FF;
-}
-
-/* ===================================================
-   12. RESPONSIVIDADE (MEDIA QUERIES)
-==================================================*/
-@media (max-width: 1024px) {
-    .navbar ul {
-        gap: 5vw; /* Reduz o espaçamento dos itens */
-    }
-
-    .logo img {
-        height: 9vh;
-    }
-
-    .navbar li {
-        font-size: 4vw;
-    }
-
-    .texto-img h1 {
-        font-size: 6vw;
-    }
-
-    .texto-img p {
-        font-size: 3vw;
-    }
-}
-
-/* 12.2. Telas Médias-Grandes (Ex: Laptops) - max-width: 1366px */
-/* NOTA: Esta media query (1366px) aparece DEPOIS da de 1024px no arquivo original. */
-@media (max-width: 1366px) {
-    .background-1,
-    .background-2 {
-        position: relative;
-        width: 100%;
-        height: 170vh; /* altura total da tela */
-        overflow: hidden;
-        text-align: center;
-        color: white;
-    }
-
-    .texto-img {
-        padding: 1px;
-        top: 18%;
-    }
-
-    .texto-img h1 {
-        font-size: 75px;
-    }
-
-    .Subtexto-img {
-        top: 47%;
-    }
-
-    .Subtexto-img p {
-        font-size: 25px;
-    }
-
-    .Subtexto2-img {
-        top: 75%;
-    }
-
-    .Subtexto2-img p {
-        font-size: 22px;
-    }
-
-    .Subtexto-img:hover {
-        transform: translate(-74%, -60%) scale(1.15);
-    }
-
-    .Subtexto2-img:hover {
-        transform: translate(-9%, -30%) scale(1.15);
-    }
-
-    .texto-img2 { /* Modifica o container .texto-img2 */
-        top: 10%;
-        font-size: 33px;
-        padding: 20px;
-    }
-
-    .top1 {
-        top: 32%;
-        left: 50%;
-        transform: translate(-0%, -30%); /* Nota: translate(0%) com left:50% não centraliza. Para centralizar, use translate(-50%, -30%). */
-    }
-
-    .top1 p, .top2 p, .top3 p {
-        font-size: 20px;
-    }
-
-    .top1:hover {
-        transform:  translate(-9%, -30%) scale(1.15);
-    }
-
-    .top2 {
-        top: 56%;
-        left: 40%;
-        transform:translate(-65%, -30%);
-    }
-
-    .top2:hover {
-        transform: translate(-55%, -30%) scale(1.15);
-    }
-
-    .top3 {
-        top: 81%;
-        left: 52%;
-        transform: translate(-0%, -30%);
-    }
-
-    .top3:hover {
-        transform: translate(-9%, -30%) scale(1.15);
-    }
-
-}
-
-/* 12.3. ESTILOS GERAIS OU ÓRFÃOS (Originalmente após @media (max-width: 1366px) e fora de qualquer media query) */
-/* Estes estilos estavam soltos no arquivo original após o bloco '@media (max-width: 1366px)'. */
-/* Eles podem ser ajustes gerais, ou para telas menores que 1366px, ou foram colocados incorretamente. */
-
-.navbar { /* Esta redefinição do .navbar afeta globalmente se não estiver em uma media query. */
-    align-items: center;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.navbar ul {
-    gap: 100px; /* Espaçamento grande, pode ser específico para um layout. */
-    padding: 0;
-}
-
-.logo { /* Muda .logo de 'fixed' para 'static'. */
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.logo img {
-    height: 13vh;
-    width: auto;
-    margin-left: -17vw; /* Margem negativa mantida. */
-}
-
-.footer-icons { /* Terceira definição de .footer-icons. Provavelmente um override. */
-    font-size: 24px !important;
-    top: 0; /* Reseta o 'top' das definições anteriores. */
-}
-
-.titulo {
-    font-size: 36px;
-}
-
-.perfil-sidebar {
-    width: 300px; /* Largura fixa. */
-    right: -300px; /* Posição inicial para animação. */
-}
-
-.perfil-sidebar.show {
-    right: 0;
-}
-
-.site-footer p {
-    font-size: 16px;
-}
-
-/* FIM DOS ESTILOS GERAIS OU ÓRFÃOS */
-
-/* 12.4. Telas Pequenas (Ex: Smartphones em retrato) - max-width: 480px */
-/* NOTA: Esta media query (480px) aparece ANTES da de 768px no arquivo original. */
-@media (max-width: 480px) {
-    .navbar {
-        flex-direction: column; 
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .navbar ul {
-        gap: 4vw; 
-        flex-direction: column; 
-    }
-
-    .logo { /* .logo já é 'static' devido aos estilos 'órfãos' acima. */
-        /* position: static; */ /* Herdado */
-        margin-bottom: 10px;
-        justify-content: center;
-        display: flex;
-    }
-
-    .logo img {
-        height: 7vh;
-        width: auto;
-        margin-left: 0; /* Remove margem negativa para telas pequenas. */
-    }
-
-    .texto-img h1,
-    .texto-img2 h1 { /* Estilo para h1 dentro de .texto-img2 (antes .texto-img2 em si era estilizado) */
-        font-size: 10vw; 
-    }
-
-    .texto-img p,
-    .texto-img2 p,
-    .Subtexto-img p,
-    .Subtexto2-img p,
-    .top1 p,
-    .top2 p,
-    .top3 p {
-        font-size: 5vw; 
-    }
-
-    .Subtexto-img,
-    .Subtexto2-img,
-    .top1,
-    .top2,
-    .top3 {
-        position: static; /* Elementos passam a fluir no documento. */
-        margin: 10px auto; /* Margem vertical e centralização horizontal. */
-        padding: 10px;
-        width: 90%;
-        text-align: center;
-    }
-
-    .top1, .top2, .top3 { /* Estilo para os containers .topX */
-        font-size: 18px; 
-    }
-
-    .site-footer p {
-        font-size: 14px;
-    }
-
-    .footer-icons a {
-        font-size: 6vw;
-    }
-
-    .perfil-sidebar {
-        right: -100vw; /* Garante que comece fora da tela. */
-        width: 80vw; /* Mais largo em telas pequenas. */
-        /* position: absolute; */ /* Original tinha 'absolute' aqui. A definição principal é 'fixed'. Mantendo 'fixed'. */
-    }
-}
-
-/* 12.5. Telas Menores/Tablets (Ex: Smartphones em paisagem, Tablets em retrato) - max-width: 768px */
-/* NOTA: Esta media query (768px) aparece DEPOIS da de 480px no arquivo original.*/
-@media (max-width: 812px) {
-    /* Se as regras de 480px não devem aplicar aqui, esta media query precisa ser mais específica ou redefinir estilos. */
-    /* Assumindo que esta é para telas entre 481px e 768px, ou que sobrescreve 480px. */
-    .navbar {
-        flex-direction: column; /* Mantém coluna como em 480px. */
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    .navbar ul li a.active {
-        font-size: 7vw;
-        gap: 4vw;
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .logo img {
-        height: 8vw; /* Tamanho do logo. */
-        width: auto;
-        /* margin-left: 0; */ /* Herdado de 480px se aplicável. */
-    }
-
-    .texto-img {
-        margin-top: 22vw;
-    }
-
-    .texto-img h1,
-    .texto-img2 h1 {
-        font-size: 10vw;
-    }
-
-    .texto-img p,
-    .texto-img2 p,
-    .Subtexto-img p,
-    .Subtexto2-img p,
-    .top1 p,
-    .top2 p,
-    .top3 p {
-        font-size: 4vw;
-    }
-
-    .Subtexto-img h1,.Subtexto2-img h1 {
-        font-size: 7vw;
-    }
-
-    .Subtexto-img {
-        position: absolute; /* Mantém estático. */
-        margin-top: -10vw; 
-        padding: 3px;
-        text-align: center;
-        margin-left: 16vw;
-    }
-
-    .Subtexto2-img {
-        position: absolute; /* Mantém estático. */
-        margin-top: -6vw; 
-        padding: 3px;
-        text-align: center;
-        margin-left: 16vw;
-    }
-
-    .Subtexto2-img {
-        transform: translate(-57%, -50%);
-    }
-
-    .Subtexto-img:hover {
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-
-    .Subtexto2-img:hover {
-        transform: translate(-57%, -50%) scale(1.1);
-    }
-
-    .texto-img2 h2 {
-        font-size: 10vw;
-        
-    }
-
-    .top1, .top2, .top3 { /* Estilo para os containers .topX */
-        font-size: 22px; 
-    }
-
-    .site-footer p {
-        font-size: 16px; /* Igual aos estilos 'órfãos'. */
-    }
-
-    .footer-icons a {
-        font-size: 22px; /* Tamanho fixo, diferente de 480px. */
-    }
-}
-
-/* ===================================================
-   13. CARROSSEL DE PARCEIROS/CURSOS
-   =================================================== */
-/* O comentário original '====== CARROSSEL DE PARCEIROS ===================' foi mantido e expandido */
-
-/* 13.1. Contêiner do Carrossel */
 .carousel-container {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: auto; /* Ou 100% para ocupar a largura disponível */
-    overflow: visible; /* Permite que sombras de .course não sejam cortadas */
-    position: relative; /* Para posicionamento de botões de navegação, se houver */
+    width: auto;
+    overflow: visible;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1vw auto; /* Margem e centralização do container */
-    /* overflow-x: auto; */ /* Movido para .carousel para melhor controle */
-    transition: transform 0.3s ease;
+    margin: 1vw auto;
+    transition: transform 0.3s ease; /* Para o container, se ele se mover */
 }
 
-/* 13.2. Efeito Hover nos Itens do Carrossel (Cards) */
-.course:hover { /* .course é o item individual do carrossel */
-    transform: scale(1.2); /* Aumenta o card */
-    z-index: 10; /* Traz para frente de outros cards no hover */
-}
-
-/* 13.3. Área de Scroll do Carrossel */
 .carousel {
-    margin-top: 31vw; /* Margem superior grande */
-    display: flex; /* Organiza os cards em linha */
-    gap: 5vw; /* Espaçamento entre os cards */
-    overflow-x: scroll; /* Habilita scroll horizontal */
-    scroll-behavior: smooth; /* Scroll suave com JS ou links internos */
-    scrollbar-width: none; /* Esconde scrollbar no Firefox */
-    -ms-overflow-style: none; /* Esconde scrollbar no IE/Edge */
+    margin-top: 31vw;
+    display: flex;
+    gap: 5vw;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
     max-width: 100%;
-    white-space: nowrap; /* Impede que os cards quebrem linha */
-    cursor: grab; /* Cursor de 'agarrar' para indicar scrollável */
-    user-select: none; /* Impede seleção de texto dentro do carrossel ao arrastar */
-    padding: 40px 10px; /* Preenchimento para não cortar sombras ou bordas */
+    white-space: nowrap;
+    cursor: grab;
+    user-select: none;
+    padding: 40px 10px;
 }
-.carousel::-webkit-scrollbar { /* Esconde scrollbar no Chrome/Safari/Opera */
-    display: none;
+.carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
 }
 
-/* 13.4. Estado Ativo do Carrossel (quando está sendo arrastado) */
 .carousel.active {
-    cursor: grabbing; /* Cursor de 'agarrando' */
+    cursor: grabbing;
 }
 
-/* 13.5. Estilo dos Itens Individuais do Carrossel (Cards) */
-.course { /* Card individual */
-    height: 38vh; 
-    display: inline-block; /* Para white-space: nowrap funcionar com flex */
-    min-width: 35vh; /* Largura mínima do card */
+.course { /* Carousel Item/Card */
+    height: 38vh;
+    display: inline-block;
+    min-width: 35vh;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(1, 1, 1, 1); /* Sombra forte */
-    cursor: pointer; /* Indica que é clicável */
-    transition: transform 0.3s, border 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 8px rgba(1, 1, 1, 1);
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s, box-shadow 0.3s; /* Adicionado box-shadow para suavizar no hover */
     padding: 10px;
     text-align: center;
-    transform-origin: center center; /* Origem da transformação para o hover */
-    position: relative; /* Para z-index no hover funcionar corretamente */
+    transform-origin: center center;
+    position: relative;
     z-index: 1;
-    -webkit-user-drag: none; /* Impede arrastar a imagem/card como um todo */
-    user-select: none; /* Redundante com .carousel, mas seguro */
+    -webkit-user-drag: none;
+    /* user-select: none; Já no .carousel */
     overflow: visible; /* Para que o hover scale não seja cortado */
 }
 
-/* 13.5.1. Título (H3) dentro do Card do Curso */
+.course:hover {
+    transform: scale(1.2);
+    z-index: 10; /* Traz para frente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada no hover */
+}
+
 .course h3 {
     font-family: 'Orbitron';
 }
 
-/* ===================================================
-   FIM DO ARQUIVO CSS
-   =================================================== */
-/* Se houver mais estilos no arquivo original após '.course h3', eles não foram incluídos aqui, pois o log estava truncado. */
-/* A organização foi feita com base no conteúdo visível no log. */
-
-
-/* Imagem dentro do card do curso */
 .course img {
     width: auto;
     max-width: 60%;
@@ -1069,29 +657,30 @@ body {
     pointer-events: none;
 }
 
-/* Estilo para curso selecionado */
+/* ===================================================
+   10. MISCELLANEOUS & PAGE-SPECIFIC STYLES
+   =================================================== */
 
-.parceiros {
-    position: absolute;
+/* 10.1. Partner Section Specifics */
+.parceiros { /* Container para a seção de parceiros com imagem de fundo */
+    position: absolute; /* Verificar se este é o comportamento desejado, pode sobrepor outros elementos */
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    background-image: linear-gradient(
-    rgba(0, 0, 0, 0.4), 
-    rgb(0, 0, 0)
-  ), url('../imagens/backP2.jpg');
+    height: auto; /* Ou uma altura específica */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgb(0, 0, 0)), url('../imagens/backP2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
+    z-index: 1; /* Pode precisar de ajuste dependendo do stacking context */
 }
 
-.texto-imgP {
+.texto-imgP { /* Texto sobreposto na seção de parceiros */
     position: absolute;
     top: 28%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 20px; /* Adicionado padding, pois não havia */
     background: rgba(41, 41, 41, 0.9);
     border-radius: 10px;
     transition: all 0.5s ease;
@@ -1107,40 +696,38 @@ body {
     z-index: 2;
 }
 
+/* 10.2. Animated Text (teste2, word, char) */
 .teste2 {
 	display: flex;
 	align-items: center;
-	.word {
-		width: 600px;
-		margin: auto;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 80%;
-		&:hover {
-			.char:nth-child(even) {
-				top: 20px;
-			}
-			.char:nth-child(odd) {
-				top: -20px;
-			}
-		}
-	}
-	.char {
-		flex: 1;
-		position: relative;
-		display: inline-block;
-		top: 0;
-		transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
-	}
+    /* height: 80%;  Falta um contexto de altura para este percentual */
+}
+.teste2 .word { /* Adicionado '.teste2' para especificidade */
+    width: 600px; /* Ou use unidades relativas */
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 80%; */ /* Se .teste2 tiver altura definida */
+}
+.teste2 .word:hover { /* Adicionado '.teste2' para especificidade */
+    color: #00aaff; /* Efeito de cor no hover do container da palavra */
+}
+.teste2 .word:hover .char:nth-child(even) { /* Adicionado '.teste2' */
+    top: 20px;
+}
+.teste2 .word:hover .char:nth-child(odd) { /* Adicionado '.teste2' */
+    top: -20px;
+}
+.teste2 .char { /* Adicionado '.teste2' para especificidade */
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    top: 0;
+    transition: top 1s cubic-bezier(0.19, 1, 0.22, 1); /* Transição apenas para 'top' */
 }
 
-.word:hover {
-    color: #00aaff;
-}
-
-
-/* Adicione ou ajuste em seu arquivo .css */
+/* 10.3. General Form Container (e.g., Contato, Cadastro) */
 .formulario-container {
   max-width: 400px;
   margin: 40px auto;
@@ -1169,7 +756,7 @@ body {
   gap: 15px;
 }
 
-.formulario-container input {
+.formulario-container input { /* Estilo geral para inputs no formulário */
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -1181,6 +768,13 @@ body {
   border-color: #3f51b5;
   outline: none;
   box-shadow: 0 0 5px rgba(63, 81, 181, 0.2);
+}
+
+.formulario-container input::placeholder,
+.formulario-container textarea::placeholder { /* Placeholder para inputs e textareas neste formulário */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 14px;
+  color: #bbbbbb;
 }
 
 .formulario-container button {
@@ -1202,65 +796,400 @@ body {
   background-color: #303f9f;
 }
 
-.fechar-login-btn {
+/* .fechar-login-btn já definido na Sidebar, este é para o formulário-container? */
+/* Se for um botão de fechar genérico para este formulário: */
+.formulario-container .fechar-form-btn { /* Renomeado para evitar conflito */
   background-color: #ccc;
   color: #333;
 }
-
-.fechar-login-btn:hover {
+.formulario-container .fechar-form-btn:hover {
   background-color: #bbb;
 }
 
-.perfil-opcoes2 {
-  margin-top: 10px;
-  list-style: none;
-  text-align: center;
-  padding: 0;
+/* ===================================================
+   11. HOVER EFFECTS & GLOBAL TRANSITIONS
+   =================================================== */
+
+/* 11.1. Global Transitions for Smooth Effects (Aplicado a vários elementos) */
+.Subtexto-img, .Subtexto2-img, .top1, .top2, .top3, .titulo,
+.site-footer, .header li, .logo, .site-footer p {
+    transition: all 0.5s ease;
+    transform-origin: center;
 }
 
-.perfil-opcoes2 li a {
-  font-size: 0.9rem;
-  color: #3f51b5;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* 11.2. Hover on Overlaid Text Elements */
+.texto-img:hover {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
-.perfil-opcoes2 li a:hover {
-  color: #303f9f;
+.texto-img2:hover {
+    color: #00aaff;
+    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
 }
 
-.reset-senha {
-    font-size: 1.2vw;
+.texto-imgP:hover {
+    color: #00aaff;
+    transform: translate(-50%, -50%) scale(1.1) rotateX(5deg) rotateY(5deg);
 }
 
-input::placeholder,
-textarea::placeholder {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 14px;
-  color: #bbbbbb;
+/* 11.3. Hover on Sub-text Overlays */
+.Subtexto-img:hover {
+    transform: translate(-74%, -50%) scale(1.15); /* Ajustado em media queries */
 }
 
+.Subtexto2-img:hover {
+    transform: translate(-9%, -40%) scale(1.15); /* Ajustado em media queries */
+}
 
+/* 11.4. Hover on "Top" Informational Blocks */
+.top1:hover {
+    transform: translate(-7%, -30%) scale(1.10); /* Ajustado em media queries */
+}
 
+.top2:hover {
+    transform: translate(-60.5%, -30%) scale(1.10); /* Ajustado em media queries */
+}
 
+.top3:hover {
+    transform: translate(-7%, -30%) scale(1.10); /* Ajustado em media queries */
+}
+
+/* 11.5. Hover on Other General Elements */
+.titulo:hover, .header li:hover, .logo:hover {
+    transform: scale(1.18);
+}
+/* Seletor .contador-curso:hover não definido no CSS fornecido */
+/* Seletor .material-icons:hover não definido no CSS fornecido */
+/* Exemplo para .material-icons, se existir:
+.material-icons:hover {
+    transform: scale(1.1);
+    color: #00bfae;
+    cursor: pointer;
+}
+*/
+
+/* 11.6. Hover on Footer Elements */
+.site-footer:hover {
+    transform: scale(1.18);
+}
+
+.site-footer p:hover {
+    color: #00bfae;
+}
 
 /* ===================================================
-   14. MINIMAL FOOTER FIX FOR SPECIFIC PAGES
+   12. SCROLLBAR STYLING (WEBKIT BROWSERS)
    =================================================== */
-/* Apply these rules only to pages needing the footer fix */
-body.contatos-page,
-body.parceiros-page {
-    position: relative; /* Needed for absolute positioning of footer relative to body */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
-    /* Add padding at the bottom equal to or greater than the footer height */
-    /* Estimate footer height (padding + text + icons) - adjust as needed */
-    padding-bottom: 100px; /* Adjust this value based on actual footer height */
+::-webkit-scrollbar {
+    background-color: #ffffff;
+    /* width: 8px; */ /* Exemplo de largura */
 }
 
-/* Ensure the absolute footer on these pages is positioned at the bottom */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    border-radius: 0.5vw;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    background-color: #D6E3FF;
+    border-radius: 0.5vw; /* Adicionado para combinar com o track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #B0C4FF;
+}
+
+/* ===================================================
+   13. PAGE-SPECIFIC FIXES
+   =================================================== */
+/* Footer fix for specific pages (e.g., contatos, parceiros) */
+body.contatos-page,
+body.parceiros-page {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px; /* Ajustar conforme altura real do footer */
+}
+
 body.contatos-page .site-footer,
 body.parceiros-page .site-footer {
-    position: static;
+    position: static; /* Original: absolute. 'static' pode ser melhor se padding-bottom for usado no body. */
+                     /* Se precisar fixar no fundo da viewport visível e não do conteúdo:
+                        position: absolute; bottom: 0; left: 0; */
     width: 100%;
 }
 
+
+/* ===================================================
+   14. RESPONSIVENESS (MEDIA QUERIES)
+   Organizadas de maior para menor breakpoint
+   =================================================== */
+
+/* 14.1. Telas Médias-Grandes (Ex: Laptops) - max-width: 1366px */
+@media (max-width: 1366px) {
+    .background-1,
+    .background-2 {
+        height: 170vh;
+    }
+
+    .texto-img {
+        padding: 1px; /* Muito pequeno, verificar intenção */
+        top: 18%;
+    }
+    .texto-img h1 {
+        font-size: 75px; /* Considerar vw para melhor responsividade */
+    }
+
+    .Subtexto-img {
+        top: 47%;
+    }
+    .Subtexto-img p {
+        font-size: 25px;
+    }
+    .Subtexto-img:hover { /* Ajuste do hover para esta resolução */
+        transform: translate(-74%, -60%) scale(1.15);
+    }
+
+    .Subtexto2-img {
+        top: 75%;
+    }
+    .Subtexto2-img p {
+        font-size: 22px;
+    }
+    .Subtexto2-img:hover { /* Ajuste do hover para esta resolução */
+        transform: translate(-9%, -30%) scale(1.15);
+    }
+
+    .texto-img2 {
+        top: 10%;
+        font-size: 33px;
+        padding: 20px;
+    }
+
+    .top1 {
+        top: 32%; left: 50%;
+        transform: translate(-0%, -30%); /* Para centralizar, use translate(-50%, -30%) */
+    }
+    .top1 p, .top2 p, .top3 p {
+        font-size: 20px;
+    }
+    .top1:hover {
+        transform: translate(-9%, -30%) scale(1.15); /* Ajuste do hover para esta resolução */
+    }
+
+    .top2 {
+        top: 56%; left: 40%;
+        transform:translate(-65%, -30%);
+    }
+    .top2:hover {
+        transform: translate(-55%, -30%) scale(1.15); /* Ajuste do hover para esta resolução */
+    }
+
+    .top3 {
+        top: 81%; left: 52%;
+        transform: translate(-0%, -30%);
+    }
+    .top3:hover {
+        transform: translate(-9%, -30%) scale(1.15); /* Ajuste do hover para esta resolução */
+    }
+}
+
+/* 14.2. Telas Médias (Ex: Tablets em paisagem) - max-width: 1024px */
+@media (max-width: 1024px) {
+    .navbar ul {
+        gap: 5vw; /* Reduz o espaçamento dos itens da navbar */
+    }
+    /* Se os estilos "órfãos" (gap: 100px) são para <1366px e >1024px,
+       esta regra de 5vw sobrescreverá para <=1024px. */
+
+    .logo img {
+        height: 9vh;
+    }
+
+    .navbar li {
+        font-size: 4vw;
+    }
+
+    .texto-img h1 {
+        font-size: 6vw; /* Já ajustado em 1366px, esta regra pode ser mais específica ou redundante */
+    }
+
+    .texto-img p {
+        font-size: 3vw;
+    }
+}
+
+/* 14.3. Telas Menores/Tablets (Ex: Tablets em retrato) - max-width: 812px (e similares) */
+@media (max-width: 812px) { /* Originalmente 768px, depois 812px. Usando 812px como no original. */
+    .navbar {
+        flex-direction: column;
+        /* text-align: center; já definido nos "órfãos" */
+        /* padding: 10px 0; já definido nos "órfãos" */
+    }
+    .navbar ul { /* Já ajustado nos "órfãos" e em 1024px, esta regra pode ser mais específica */
+        flex-direction: column; /* Mantém coluna */
+        gap: 4vw; /* Ajusta o gap novamente */
+    }
+
+    .navbar ul li a.active { /* Estilo para item ativo em telas menores */
+        font-size: 7vw; /* Aumenta o item ativo */
+        /* 'gap', 'flex-direction', 'padding' aqui não fazem sentido para o link 'a' em si.
+           Removidos: gap: 4vw; flex-direction: column; padding: 0; */
+    }
+
+    .logo img { /* .logo já é static e flex devido aos "órfãos" */
+        height: 8vw;
+        /* margin-left: 0; pode ser herdado de 480px se esta query for lida depois */
+    }
+
+    .texto-img {
+        margin-top: 22vw; /* Pode precisar de ajuste se 'top' e 'transform' ainda estiverem ativos */
+    }
+    .texto-img h1,
+    .texto-img2 h1 { /* .texto-img2 não tem h1 direto, mas .texto-img2 em si é estilizado. Assumindo que é para h1 dentro de .texto-img2 */
+        font-size: 10vw;
+    }
+
+    .texto-img p,
+    .texto-img2 p,
+    .Subtexto-img p,
+    .Subtexto2-img p,
+    .top1 p,
+    .top2 p,
+    .top3 p {
+        font-size: 4vw;
+    }
+
+    .Subtexto-img h1, .Subtexto2-img h1 {
+        font-size: 7vw;
+    }
+
+    .Subtexto-img {
+        /* position: absolute;  Original era estático em 480px. Manter consistência ou redefinir. */
+        /* Se for para voltar a ser absoluto: */
+        position: absolute;
+        top: auto; /* Resetar top/left se for para fluir com margin-top */
+        left: auto;
+        transform: none; /* Resetar transform */
+        margin-top: -10vw;
+        margin-left: 16vw; /* Com position:absolute, margin-left pode ser substituído por 'left' */
+        padding: 3px;
+        text-align: center;
+    }
+    .Subtexto-img:hover {
+        transform: translate(-50%, -50%) scale(1.1); /* Se for absoluto e centralizado */
+    }
+
+    .Subtexto2-img {
+        /* position: absolute; */
+        position: absolute;
+        top: auto;
+        left: auto;
+        transform: translate(-57%, -50%); /* Ajuste para este novo posicionamento */
+        margin-top: -6vw;
+        margin-left: 16vw;
+        padding: 3px;
+        text-align: center;
+    }
+    .Subtexto2-img:hover {
+        transform: translate(-57%, -50%) scale(1.1); /* Manter o mesmo transform */
+    }
+
+    /* Se .texto-img2 tiver um h2 dentro dele:
+    .texto-img2 h2 {
+        font-size: 10vw;
+    } */
+
+    .top1, .top2, .top3 {
+        font-size: 22px; /* Tamanho da fonte para o container, não para o texto interno que já foi definido */
+    }
+
+    .site-footer p {
+        font-size: 16px; /* Igual aos "órfãos" */
+    }
+
+    .footer-icons a { /* Específico para esta resolução, sobrescreve o !important dos "órfãos" */
+        font-size: 22px !important; /* Adicionado !important para garantir prioridade se necessário */
+    }
+}
+
+/* 14.4. Telas Pequenas (Ex: Smartphones em retrato) - max-width: 480px */
+@media (max-width: 480px) {
+    .navbar { /* Herda flex-direction: column de 812px */
+        /* text-align: center; já dos "órfãos" */
+        /* padding: 10px 0; já dos "órfãos" */
+    }
+    .navbar ul { /* Herda flex-direction: column de 812px */
+        gap: 4vw; /* Mantém ou ajusta o gap */
+    }
+
+    .logo { /* .logo já é 'static', 'flex', 'justify-content: center' dos "órfãos" */
+        margin-bottom: 10px; /* Mantém */
+    }
+    .logo img {
+        height: 7vh;
+        /* width: auto; já definido */
+        margin-left: 0; /* Remove margem negativa */
+    }
+
+    .texto-img h1,
+    .texto-img2 h1 { /* Assumindo h1 dentro de .texto-img2 */
+        font-size: 10vw;
+    }
+
+    .texto-img p,
+    .texto-img2 p,
+    .Subtexto-img p,
+    .Subtexto2-img p,
+    .top1 p,
+    .top2 p,
+    .top3 p {
+        font-size: 5vw;
+    }
+
+    /* Elementos de texto sobreposto passam a fluir no documento */
+    .Subtexto-img,
+    .Subtexto2-img,
+    .top1,
+    .top2,
+    .top3 {
+        position: static;
+        transform: none; /* Resetar transformações */
+        margin: 10px auto;
+        padding: 10px;
+        width: 90%;
+        text-align: center;
+    }
+    /* Resetar hovers que dependem de position:absolute e transform */
+    .Subtexto-img:hover, .Subtexto2-img:hover,
+    .top1:hover, .top2:hover, .top3:hover {
+        transform: scale(1.05); /* Efeito de hover mais simples para static */
+    }
+
+
+    .top1, .top2, .top3 { /* Estilo para os containers .topX em si */
+        font-size: 18px;
+    }
+
+    .site-footer p {
+        font-size: 14px;
+    }
+
+    .footer-icons a { /* Específico para esta resolução */
+        font-size: 6vw !important; /* !important para garantir prioridade */
+    }
+
+    .perfil-sidebar {
+        width: 80vw; /* Mais largo */
+        right: -100vw; /* Garante que comece fora da tela */
+        /* position: fixed;  Mantido fixed da definição principal. Comentário original mencionava 'absolute'. */
+    }
+    .perfil-sidebar.show {
+        right: 0;
+    }
+}
+
+/* ===================================================
+   FIM DO ARQUIVO CSS
+   =================================================== */
