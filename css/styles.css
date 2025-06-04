@@ -1319,14 +1319,13 @@ body.parceiros-page .site-footer {
     position: absolute;
     text-align: justify;
     max-width: 40vw;
-    top: 35vw;
+    top: 31vw;
     right: 6vw;
-
 }
 
 .analise p {
-    font-size: 38px;
     transition: transform 0.3s ease;
+    font-size: 38px;
 }
 
 .s2 {
@@ -1397,8 +1396,9 @@ body.parceiros-page .site-footer {
     transition: transform 0.3s ease;
 }
 
-
     /* ========= HOVER's =========== */
+
+
 .analise p:hover {
     transform: scale(1.1);
 }
@@ -1415,6 +1415,7 @@ body.parceiros-page .site-footer {
     transform: scale(1.1);
 }
 
+
 .s1:hover{
     transform: scale(1.1);
     
@@ -1427,6 +1428,7 @@ body.parceiros-page .site-footer {
 .s3:hover {
     transform: scale(1.1);
 }
+
 /* ===================================================
    FIM DO ARQUIVO CSS
    =================================================== */

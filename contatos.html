@@ -19,7 +19,7 @@
       <ul>
         <li><a href="index.html"><span class="material-icons">book</span>Projeto C3PO</a></li>
         <li><a href="parceiros.html"><span class="material-icons">business</span>Parceiros</a></li>
-        <li><a href="contatos.html "><span class="material-icons">business_center</span>Serviços</a></li>
+        <li><a href="contatos.html"><span class="material-icons">business_center</span>Serviços</a></li>
         <li><a href="#" onclick="mostrarPerfil(event)"><span class="material-icons">person</span>Meu Perfil</a></li>
       </ul>
     </nav>
@@ -34,6 +34,7 @@
     <div class="s1">
       <img src="imagens/analise.jpg" width="420px" height="350px">
       <p>Análise de Vulnerabilidades</p>
+    </div>
     </div>
     <div class="analise">
       <p>Realizamos uma varredura completa na sua infraestrutura de TI para identificar falhas técnicas, brechas de segurança e configurações incorretas que possam ser exploradas por invasores. Com base nisso, entregamos um relatório detalhado e um plano de ação personalizado para corrigir os pontos críticos antes que se tornem um problema.</p>
@@ -92,7 +93,7 @@
             <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
         </form>
         <ul class="perfil-opcoes2">
-            <li class="reset-senha"><a href="#">Esqueci Minha Senha</a></li>
+            <li class="reset-senha"><a href="#" onclick="mostrarFormulario(event, 'reset-senha-form')">Esqueci Minha Senha</a></li>
         </ul>
     </div>
 
@@ -108,6 +109,18 @@
         <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
     </form>
    </div>
+
+   <div id="reset-senha-form" class="formulario-container" style="display:none;">
+    <h4>Esqueci Minha Senha</h4>
+    <form onsubmit="handleResetSenha(event)" autocomplete="off">
+        <p style="font-size: 0.9em; margin-bottom: 15px; color: #ccc;">Digite seu e-mail para receber instruções de recuperação.</p>
+        <input type="email" id="reset-email" placeholder="Seu E-mail" required autocomplete="off">
+        <button type="submit">Enviar Instruções</button>
+        <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
+    </form>
+    <div id="reset-feedback" class="feedback-message" style="margin-top: 10px; font-size: 0.9em; color: #ccc;"></div> <!-- Div de feedback adicionada -->
+   </div>
+
   </div>
 
   <footer class="site-footer">

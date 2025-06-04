@@ -100,10 +100,9 @@
             <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
         </form>
         <ul class="perfil-opcoes2">
-            <li class="reset-senha"><a href="#">Esqueci Minha Senha</a></li>
+            <li class="reset-senha"><a href="#" onclick="mostrarFormulario(event, 'reset-senha-form')">Esqueci Minha Senha</a></li>
         </ul>
     </div>
-  </div>
 
     <div id="cadastro-form" class="formulario-container" style="display:none;">
     <h4>Primeiro Acesso</h4>
@@ -116,6 +115,19 @@
         <button type="submit">Cadastrar</button>
         <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
     </form>
+  </div>
+
+   <div id="reset-senha-form" class="formulario-container" style="display:none;">
+    <h4>Esqueci Minha Senha</h4>
+    <form onsubmit="handleResetSenha(event)" autocomplete="off">
+        <p style="font-size: 0.9em; margin-bottom: 15px; color: #ccc;">Digite seu e-mail para receber instruções de recuperação.</p>
+        <input type="email" id="reset-email" placeholder="Seu E-mail" required autocomplete="off">
+        <button type="submit">Enviar Instruções</button>
+        <button type="button" onclick="fecharFormularios()" class="fechar-login-btn">Cancelar</button>
+    </form>
+    <div id="reset-feedback" class="feedback-message" style="margin-top: 10px; font-size: 0.9em; color: #ccc;"></div> <!-- Div de feedback adicionada -->
+   </div>
+
   </div>
 
   <footer class="site-footer">

@@ -101,18 +101,20 @@ function mostrarFormulario(event, formIdToShow) {
     const opcoesPrincipais = sidebar?.querySelector(".perfil-opcoes");
     const loginForm = document.getElementById("login-form");
     const cadastroForm = document.getElementById("cadastro-form");
+    const resetSenhaForm = document.getElementById("reset-senha-form"); // Adicionado
 
-    if (!sidebar || !opcoesPrincipais || !loginForm || !cadastroForm) {
-        console.error("Elementos da sidebar não encontrados!");
+    if (!sidebar || !opcoesPrincipais || !loginForm || !cadastroForm || !resetSenhaForm) { // Adicionado resetSenhaForm na verificação
+        console.error("Elementos da sidebar ou formulários não encontrados!");
         return;
     }
 
     // Esconde as opções principais
     opcoesPrincipais.style.display = "none";
 
-    // Esconde ambos os formulários primeiro
+    // Esconde todos os formulários primeiro
     loginForm.style.display = "none";
     cadastroForm.style.display = "none";
+    resetSenhaForm.style.display = "none"; // Adicionado
 
     // Mostra o formulário solicitado
     const formToShow = document.getElementById(formIdToShow);
@@ -127,15 +129,17 @@ function fecharFormularios() {
     const opcoesPrincipais = sidebar?.querySelector(".perfil-opcoes");
     const loginForm = document.getElementById("login-form");
     const cadastroForm = document.getElementById("cadastro-form");
+    const resetSenhaForm = document.getElementById("reset-senha-form"); // Adicionado
 
-    if (!sidebar || !opcoesPrincipais || !loginForm || !cadastroForm) {
-        // Não loga erro aqui, pois pode ser chamado ao fechar a sidebar
+    // Verifica se os elementos essenciais existem
+    if (!sidebar || !opcoesPrincipais) {
         return; 
     }
 
-    // Esconde ambos os formulários
-    loginForm.style.display = "none";
-    cadastroForm.style.display = "none";
+    // Esconde todos os formulários se existirem
+    if (loginForm) loginForm.style.display = "none";
+    if (cadastroForm) cadastroForm.style.display = "none";
+    if (resetSenhaForm) resetSenhaForm.style.display = "none"; // Adicionado
 
     // Mostra as opções principais novamente
     opcoesPrincipais.style.display = "block"; 
@@ -357,4 +361,69 @@ document.addEventListener("dragstart", function(e) {
 });
 
 
+
+
+
+
+// Função para lidar com o envio do formulário "Esqueci Minha Senha"
+async function handleResetSenha(event) {
+    event.preventDefault();
+    const emailInput = document.getElementById("reset-email");
+    // A div de feedback está dentro do mesmo container do formulário
+    const feedbackDiv = event.target.closest(".formulario-container").querySelector("#reset-feedback"); 
+
+    if (!emailInput || !feedbackDiv) {
+        console.error("Campo de e-mail ou div de feedback não encontrados!");
+        alert("Erro no formulário de recuperação. Tente recarregar.");
+        return;
+    }
+
+    const email = emailInput.value;
+    feedbackDiv.textContent = "Processando..."; // Feedback inicial
+    feedbackDiv.style.color = "#ccc"; // Cor padrão ou de processamento
+
+    // *** AJUSTE A URL CONFORME SEU AMBIENTE LOCAL ***
+    const backendUrl = "reset_senha_request.php"; // Ou http://localhost/seu_projeto/reset_senha_request.php
+
+    try {
+        const response = await fetch(backendUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `email=${encodeURIComponent(email)}`,
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro na rede: ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+            feedbackDiv.textContent = result.message;
+            feedbackDiv.style.color = "#28a745"; // Verde para sucesso
+            emailInput.value = ""; // Limpa o campo após sucesso
+        } else {
+            feedbackDiv.textContent = `Falha: ${result.message || "Não foi possível processar a solicitação."}`;
+            feedbackDiv.style.color = "#dc3545"; // Vermelho para erro
+        }
+        
+        // Opcional: Exibir o token de debug se ele existir na resposta (APENAS PARA DESENVOLVIMENTO)
+        // if (result.debug_token) {
+        //     console.log("Token de Reset (Debug):", result.debug_token);
+        //     alert("Token de Reset (Debug): " + result.debug_token + "\nVerifique o console para copiar.");
+        // }
+
+    } catch (error) {
+        console.error("Erro ao solicitar redefinição de senha:", error);
+        feedbackDiv.textContent = "Erro ao conectar com o servidor. Tente novamente.";
+        feedbackDiv.style.color = "#dc3545"; // Vermelho para erro
+        if (error instanceof SyntaxError) {
+            feedbackDiv.textContent = "Erro ao processar resposta do servidor (reset). Verifique o PHP.";
+        } else if (error.message.includes("Failed to fetch")) {
+            feedbackDiv.textContent = "Não foi possível conectar ao servidor (reset). Verifique a URL e se o servidor está rodando.";
+        }
+    }
+}
 
