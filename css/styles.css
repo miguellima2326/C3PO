@@ -991,23 +991,56 @@ body.parceiros-page .site-footer {
     /* ========== Pagina Serviços ========== */
     
     .analise {
-        top: 30vw !important;
+        top: 29vw !important;
+        right: 1vw !important;
+        max-width: 55vw !important;
+        transform: scale(0.8);
     }
 
     .monitoramento {
-        top: 85vw !important;
+        top: 68vw !important;
+        transform: scale(0.8);
+        max-width: 55vw !important;
+        left: 1vw !important;
     }
 
     .pentest {
-        top: 138vw !important;
+        top: 107vw !important;
+        max-width: 55vw !important;
+        transform: scale(0.8);
+        right: 1vw !important;
+    }
+
+    .s1{
+        top: 28vw !important;
+        left: 3vw !important;
+        transform: scale(0.75);
     }
 
     .s2 {
-        top: 86vw !important;
+        top: 67vw !important;
+        right: 1vw !important;
+        transform: scale(0.75);
     }
 
     .s3 {
-        top: 138vw !important ;
+        top: 106vw !important ;
+        transform: scale(0.75);
+        left: 1vw !important;
+    }
+
+    /* HOVER PAGINA SERVIÇOS */
+
+    .s1:hover{
+    transform: scale(0.83) !important;
+    }
+
+    .s2:hover {
+    transform: scale(0.83) !important;
+     }
+
+    .s3:hover {
+    transform: scale(0.83) !important;
     }
 
 }
@@ -1286,7 +1319,7 @@ body.parceiros-page .site-footer {
     position: absolute;
     text-align: justify;
     max-width: 40vw;
-    top: 33vw;
+    top: 35vw;
     right: 6vw;
 
 }
